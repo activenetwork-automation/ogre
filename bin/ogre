@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'ogre/runner'
+
+Ogre::Runner.new(ARGV.dup).execute!

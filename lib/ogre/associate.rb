@@ -1,8 +1,4 @@
-require 'chef/config'
-require 'chef/log'
 require 'chef/rest'
-require 'fileutils'
-require 'git'
 
 module Ogre
   class Associate < Thor::Group
@@ -21,9 +17,31 @@ module Ogre
       # define REST object
       chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
-      # associate user(s)
+      # associate (invite) user
+      request_body = {:user => user}
+      response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
 
-      # add user(s) to groups
+      # add (force) user to org
+      association_id = response["uri"].split("/").last
+      chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", { :response => 'accept' }
+
+      # admin?
+      groups = ['users']
+      if options[:admin] then groups << 'admins' end
+
+      # add user to group(s)
+      groups.each do |groupname|
+        group = chef_rest.get_rest "organizations/#{org}/groups/#{groupname}"
+        body_hash = {
+          :groupname => "#{groupname}",
+          :actors => {
+            "users" => group["actors"].concat([user]),
+            "groups" => group["groups"]
+          }
+        }
+
+        chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
+      end
 
     end
   end

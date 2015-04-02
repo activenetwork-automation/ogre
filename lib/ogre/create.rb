@@ -29,7 +29,7 @@ module Ogre
 
       # temp -- cleanup
       begin
-        puts chef_rest.delete_rest("/organizations/test")
+        chef_rest.delete_rest("/organizations/test")
       rescue
       end
 
@@ -40,8 +40,7 @@ module Ogre
       # use chef repo generate to create a chef policy repo
       if options[:create_repo]
         Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
-        puts gen_cmd = generate_cmd
-        system `#{gen_cmd}`
+        `#{generate_cmd}`
         File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", "w") do |f|
           f.print(response['private_key'])
         end
@@ -49,10 +48,8 @@ module Ogre
         puts response['private_key']
       end
 
-      # associate user(s)
-
-      # temp -- cleanup
-      puts chef_rest.delete_rest("/organizations/test")
+      # TODO: associate user(s)
+      
     end
 
     def generate_cmd
@@ -62,7 +59,6 @@ module Ogre
       generate_str << "-a org=#{org} "
       generate_str << "-a chef_server_url=#{server_url} "
       generate_str << '-g lib/ogre/skeletons/code_generator '
-
       if options[:license] then generate_str << "-I #{options[:license]} " end
       if options[:email] then generate_str << "-m #{options[:email]} " end
       if options[:authors] then generate_str << "-C \"#{options[:authors]}\" " end

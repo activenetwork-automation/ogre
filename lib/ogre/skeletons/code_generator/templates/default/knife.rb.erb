@@ -34,7 +34,7 @@ cache_options( :path => "#{home_dir}/.chef/checksums" )
 
 # Validation, for use when bootstrapping nodes
 validation_client_name   "#{org}-validator"
-validation_key           "#{current_dir}/#{validation_client_name}-#{chef_server}.pem"
+validation_key           "#{current_dir}/#{validation_client_name}.pem"
 
 # We keep our cookbooks in separate repos under a ~/chef/cookbooks dir
 cookbook_path            [ "#{current_dir}/../../../cookbooks",

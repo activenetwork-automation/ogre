@@ -33,17 +33,14 @@ cookbook_file "#{repo_dir}/cookbooks/README.md" do
 end
 
 # git
-if context.have_git
-  execute("initialize-git") do
-    command("git init .")
-    cwd repo_dir
-    not_if { "#{repo_dir}/.gitignore" }
-  end
+execute("initialize-git") do
+  command("git init .")
+  cwd repo_dir
+end
 
-  template "#{repo_dir}/.gitignore" do
-    source "repo/gitignore.erb"
-    helpers(ChefDK::Generator::TemplateHelper)
-  end
+template "#{repo_dir}/.gitignore" do
+  source "repo/gitignore.erb"
+  helpers(ChefDK::Generator::TemplateHelper)
 end
 
 # create .chef directory

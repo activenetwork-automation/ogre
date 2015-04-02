@@ -13,9 +13,6 @@ module Ogre
     argument :server_url , type: :string, desc: DESC_CHEF_SERVER_URL
     argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
-    # optional
-    class_option :associate, :aliases => '-a', type: :array, desc: DESC_ASSOCIATE_USERS
-
     # optional chef policy repo parameters
     class_option :create_repo, :aliases => '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
     class_option :license, :aliases => '-I', :default => 'apache2', type: :string, desc: DESC_REPO_LICENSE
@@ -48,8 +45,6 @@ module Ogre
         puts response['private_key']
       end
 
-      # TODO: associate user(s)
-      
     end
 
     def generate_cmd

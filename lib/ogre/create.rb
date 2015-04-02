@@ -14,10 +14,10 @@ module Ogre
     argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
     # optional
-    class_option :save_key, :aliases => '-p', type: :boolean, default: false, desc: DESC_SAVE_VALIDATION_KEY
     class_option :associate, :aliases => '-a', type: :array, desc: DESC_ASSOCIATE_USERS
 
     # optional chef policy repo parameters
+    class_option :create_repo, :aliases => '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
     class_option :license, :aliases => '-I', :default => 'apache2', type: :string, desc: DESC_REPO_LICENSE
     class_option :email, :aliases => '-m', type: :string, desc: DESC_REPO_EMAIL
     class_option :authors, :aliases => '-C', type: :string, desc: DESC_REPO_AUTHORS
@@ -34,21 +34,15 @@ module Ogre
       end
 
       # create org
-      org_json = {
-        name: "#{org}",
-        full_name: "#{org_desc}"
-      }
+      org_json = { name: "#{org}", full_name: "#{org_desc}" }
       response = chef_rest.post_rest("/organizations", org_json)
 
-      # TODO: use chef cookbook generate to create a platform-chef repository
-      # chef generate repo -m joe.nguyen@activenetwork.com -I apache2 -C 'The Active Network' -a org=acl -a chef_server=chef.dev.activenetwork.com -g code_generator acl-chef
-      Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
-      puts gen_cmd = generate_cmd
-      system `#{gen_cmd}`
-
-      # validation key logic
-      if options[:save_key]
-        File.open("#{OGRE_HOME}/#{:org}-chef/.chef/#{response['clientname']}.pem", "w") do |f|
+      # use chef repo generate to create a chef policy repo
+      if options[:create_repo]
+        Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
+        puts gen_cmd = generate_cmd
+        system `#{gen_cmd}`
+        File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", "w") do |f|
           f.print(response['private_key'])
         end
       else

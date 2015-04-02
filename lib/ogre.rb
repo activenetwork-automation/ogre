@@ -21,7 +21,7 @@ module Ogre
     register(Ogre::Create, 'create', 'create ' << Ogre::Create.arguments.map(&:name).join(" ").upcase, DESC_CREATE)
     register(Ogre::Associate, 'associate', 'associate ' << Ogre::Associate.arguments.map(&:name).join(" ").upcase, DESC_ASSOCIATE_USERS)
 
-    # hack to include options in 'ogre help command'
+    # workaround to include options in 'ogre help command'
     tasks["create"].options = Ogre::Create.class_options
     tasks["associate"].options = Ogre::Associate.class_options
 

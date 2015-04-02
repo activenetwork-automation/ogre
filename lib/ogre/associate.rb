@@ -17,32 +17,43 @@ module Ogre
       # define REST object
       chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
-      # associate (invite) user
-      request_body = {:user => user}
-      response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
+      begin
+        # associate (invite) user
+        request_body = {:user => user}
+        response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
 
-      # add (force) user to org
-      association_id = response["uri"].split("/").last
-      chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", { :response => 'accept' }
+        # add (force) user to org
+        association_id = response["uri"].split("/").last
+        chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", { :response => 'accept' }
+      rescue Net::HTTPServerException => e
+        # already exists -- i will allow it
+        if e.response.code == "409"
+          puts "User #{user} already associated with organization #{org}"
+        else
+          raise e
+        end
+      end
 
-      # admin?
+      # add to admin?
       groups = ['users']
       if options[:admin] then groups << 'admins' end
 
       # add user to group(s)
       groups.each do |groupname|
         group = chef_rest.get_rest "organizations/#{org}/groups/#{groupname}"
-        body_hash = {
-          :groupname => "#{groupname}",
-          :actors => {
-            "users" => group["actors"].concat([user]),
-            "groups" => group["groups"]
+        # check if user is in group
+        if group["actors"].include?(user) == false
+          body_hash = {
+            :groupname => "#{groupname}",
+            :actors => {
+              "users" => group["actors"].concat([user]),
+              "groups" => group["groups"]
+            }
           }
-        }
-
-        chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
+          chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
+          puts "Succesfully added #{user} to #{groupname} in the #{org} org"
+        end
       end
-
     end
   end
 end

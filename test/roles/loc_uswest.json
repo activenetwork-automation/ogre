@@ -1,0 +1,13 @@
+{
+  "env_run_lists": {},
+  "run_list": [],
+  "chef_type": "role",
+  "override_attributes": {
+    "location": "uswest",
+    "tz": "UTC"
+  },
+  "default_attributes": {},
+  "json_class": "Chef::Role",
+  "description": "Role for US-West DC",
+  "name": "loc_uswest"
+}

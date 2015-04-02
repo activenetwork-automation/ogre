@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency 'growl', '>= 1.0'
   # spec.add_development_dependency 'yard', '>= 0.8'
   spec.add_dependency 'thor', '>= 0.19.1'
-  spec.add_dependency 'git', '>= 1.2.0'
-  spec.add_dependency 'chef', '>= 12.1.2'
+  spec.add_dependency 'git', '>= 1.2.9'
+  spec.add_dependency 'chef-dk', '>= 0.4.0'
 end
 # rubocop:enable all
 

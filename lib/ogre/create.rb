@@ -54,20 +54,31 @@ module Ogre
       # chef policy repository parameters
       generate_str = ["#{OGRE_HOME}/#{org}-chef"]
 
+      # org name
       generate_str << "-a"
       generate_str << "org=#{org}"
+
+      # chef server url
       generate_str << "-a"
       generate_str << "chef_server_url=#{server_url}"
+
+      # generator skeleto
       generate_str << '-g'
       generate_str << 'lib/ogre/skeletons/code_generator'
+
+      # optional license
       if options[:license] then
         generate_str << "-I"
         generate_str << "#{options[:license]}"
       end
+
+      # optional email
       if options[:email] then
         generate_str << "-m"
         generate_str << "#{options[:email]}"
       end
+
+      # optional authors
       if options[:authors] then
         generate_str << "-C"
         generate_str << "\"#{options[:authors]}\""

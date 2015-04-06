@@ -1,9 +1,0 @@
-{
-  "override_attributes": {},
-  "default_attributes": {},
-  "chef_type": "environment",
-  "json_class": "Chef::Environment",
-  "cookbook_versions": {},
-  "description": "The default Chef environment",
-  "name": "_default"
-}

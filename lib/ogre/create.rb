@@ -1,6 +1,5 @@
-require 'chef/config'
-require 'chef/log'
 require 'chef/rest'
+require 'chef-dk/command/generator_commands/repo'
 require 'git'
 
 module Ogre
@@ -20,45 +19,60 @@ module Ogre
     class_option :authors, :aliases => '-C', type: :string, desc: DESC_REPO_AUTHORS
 
     def create
-
       # define REST object
       chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
-      # temp -- cleanup
       begin
-        chef_rest.delete_rest("/organizations/test")
-      rescue
-      end
+        # create org
+        org_json = { name: "#{org}", full_name: "#{org_desc}" }
+        response = chef_rest.post_rest("/organizations", org_json)
+        puts "'#{org}' org has been created."
 
-      # create org
-      org_json = { name: "#{org}", full_name: "#{org_desc}" }
-      response = chef_rest.post_rest("/organizations", org_json)
-
-      # use chef repo generate to create a chef policy repo
-      if options[:create_repo]
-        Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
-        `#{generate_cmd}`
-        File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", "w") do |f|
-          f.print(response['private_key'])
+        # use chef repo generate to create a chef policy repo
+        if options[:create_repo]
+          Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
+          generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params)
+          generate_cmd.run
+          File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", "w") do |f|
+            f.print(response['private_key'])
+          end
+        else
+          puts response['private_key']
         end
-      else
-        puts response['private_key']
+
+      rescue Net::HTTPServerException => e
+        # already exists -- i will allow it
+        if e.response.code == "409"
+          puts "#{org} org already exists"
+        else
+          raise e
+        end
       end
-
     end
 
-    def generate_cmd
-      generate_str = 'chef generate repo '
-
+    def generate_params
       # chef policy repository parameters
-      generate_str << "-a org=#{org} "
-      generate_str << "-a chef_server_url=#{server_url} "
-      generate_str << '-g lib/ogre/skeletons/code_generator '
-      if options[:license] then generate_str << "-I #{options[:license]} " end
-      if options[:email] then generate_str << "-m #{options[:email]} " end
-      if options[:authors] then generate_str << "-C \"#{options[:authors]}\" " end
+      generate_str = ["#{OGRE_HOME}/#{org}-chef"]
 
-      generate_str << " #{OGRE_HOME}/#{org}-chef"
+      generate_str << "-a"
+      generate_str << "org=#{org}"
+      generate_str << "-a"
+      generate_str << "chef_server_url=#{server_url}"
+      generate_str << '-g'
+      generate_str << 'lib/ogre/skeletons/code_generator'
+      if options[:license] then
+        generate_str << "-I"
+        generate_str << "#{options[:license]}"
+      end
+      if options[:email] then
+        generate_str << "-m"
+        generate_str << "#{options[:email]}"
+      end
+      if options[:authors] then
+        generate_str << "-C"
+        generate_str << "\"#{options[:authors]}\""
+      end
     end
+
   end
 end

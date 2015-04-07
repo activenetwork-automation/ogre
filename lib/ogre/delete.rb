@@ -1,5 +1,3 @@
-require 'chef/config'
-require 'chef/log'
 require 'chef/rest'
 require 'highline/import'
 

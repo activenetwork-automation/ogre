@@ -1,6 +1,5 @@
 require 'chef/rest'
 require 'chef-dk/command/generator_commands/repo'
-require 'git'
 
 module Ogre
   class Create < Thor::Group
@@ -62,7 +61,7 @@ module Ogre
       generate_str << "-a"
       generate_str << "chef_server_url=#{server_url}"
 
-      # generator skeleto
+      # generator skeleton
       generate_str << '-g'
       generate_str << 'lib/ogre/skeletons/code_generator'
 

@@ -2,7 +2,7 @@ require 'chef/rest'
 require 'highline/import'
 
 module Ogre
-  class Delete < Thor::Group
+  class DeleteOrg < Thor::Group
     include Thor::Actions
 
     # required
@@ -12,7 +12,7 @@ module Ogre
 
     class_option :force, :aliases => '-f', type: :string, desc: DESC_FORCE
 
-      def delete
+      def delete_org
         # define REST object
         chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 

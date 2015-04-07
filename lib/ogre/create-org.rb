@@ -2,7 +2,7 @@ require 'chef/rest'
 require 'chef-dk/command/generator_commands/repo'
 
 module Ogre
-  class Create < Thor::Group
+  class CreateOrg < Thor::Group
     include Thor::Actions
 
     # required
@@ -17,7 +17,7 @@ module Ogre
     class_option :email, :aliases => '-m', type: :string, desc: DESC_REPO_EMAIL
     class_option :authors, :aliases => '-C', type: :string, desc: DESC_REPO_AUTHORS
 
-    def create
+    def create_org
       # define REST object
       chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 

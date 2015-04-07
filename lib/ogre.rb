@@ -1,9 +1,9 @@
 require 'thor'
 require 'ogre/messages'
-require 'ogre/create'
+require 'ogre/create-org'
+require 'ogre/delete-org'
 require 'ogre/config'
 require 'ogre/associate'
-require 'ogre/delete'
 
 # Refer to README.md for use instructions
 module Ogre
@@ -19,13 +19,13 @@ module Ogre
     end
 
     # subcommand in Thor called as registered class
-    register(Ogre::Create, 'create', 'create ' << Ogre::Create.arguments.map(&:name).join(" ").upcase, DESC_CREATE)
-    register(Ogre::Delete, 'delete', 'delete ' << Ogre::Create.arguments.map(&:name).join(" ").upcase, DESC_DELETE)
+    register(Ogre::CreateOrg, 'create_org', 'create-org ' << Ogre::CreateOrg.arguments.map(&:name).join(" ").upcase, DESC_CREATE)
+    register(Ogre::DeleteOrg, 'delete_org', 'delete-org ' << Ogre::DeleteOrg.arguments.map(&:name).join(" ").upcase, DESC_DELETE)
     register(Ogre::Associate, 'associate', 'associate ' << Ogre::Associate.arguments.map(&:name).join(" ").upcase, DESC_ASSOCIATE_USERS)
 
     # workaround to include options in 'ogre help command'
-    tasks["create"].options = Ogre::Create.class_options
-    tasks["delete"].options = Ogre::Delete.class_options
+    tasks["create_org"].options = Ogre::CreateOrg.class_options
+    tasks["delete_org"].options = Ogre::DeleteOrg.class_options
     tasks["associate"].options = Ogre::Associate.class_options
 
   end

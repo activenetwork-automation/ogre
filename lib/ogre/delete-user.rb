@@ -9,13 +9,15 @@ module Ogre
     argument :server_url , type: :string, desc: DESC_CHEF_SERVER_URL
     argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
+    class_option :force, :aliases => '-f', :default => false, type: :boolean, desc: DESC_FORCE
+
     def delete_user
       # define REST object
       chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
       begin
         # prompt user
-        exit unless HighLine.agree("Deleting '#{username}' is permanent. Do you want to proceed? (y/n)")
+        exit unless  options[:force] || HighLine.agree("Deleting '#{username}' is permanent. Do you want to proceed? (y/n)")
 
         # disassociate from all orgs
         orgs =  chef_rest.get_rest("users/#{username}/organizations")

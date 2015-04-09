@@ -2,14 +2,11 @@ require 'chef/rest'
 require 'chef-dk/command/generator_commands/repo'
 
 module Ogre
-  class CreateOrg < Thor::Group
-    include Thor::Actions
+  class CreateOrg < Ogre::Base
 
     # required
     argument :org, type: :string, desc: DESC_ORG
     argument :org_desc, type: :string, desc: DESC_ORG_DESC
-    argument :server_url , type: :string, desc: DESC_CHEF_SERVER_URL
-    argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
     # optional chef policy repo parameters
     class_option :create_repo, :aliases => '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
@@ -18,13 +15,10 @@ module Ogre
     class_option :authors, :aliases => '-C', type: :string, desc: DESC_REPO_AUTHORS
 
     def create_org
-      # define REST object
-      chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
-
       begin
         # create org
         org_json = { name: "#{org}", full_name: "#{org_desc}" }
-        response = chef_rest.post_rest("/organizations", org_json)
+        response = self.chef_rest.post_rest("/organizations", org_json)
         puts "'#{org}' org has been created."
 
         # use chef repo generate to create a chef policy repo
@@ -59,7 +53,7 @@ module Ogre
 
       # chef server url
       generate_str << "-a"
-      generate_str << "chef_server_url=#{server_url}"
+      generate_str << "chef_server_url=#{options[:server_url] || END_POINT}"
 
       # generator skeleton
       generate_str << '-g'
@@ -82,6 +76,8 @@ module Ogre
         generate_str << "-C"
         generate_str << "\"#{options[:authors]}\""
       end
+
+      generate_str
     end
 
   end

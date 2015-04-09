@@ -1,26 +1,23 @@
 require 'chef/rest'
 
 module Ogre
-  class DeleteUser < Thor::Group
+  class DeleteUser < Ogre::Base
     include Thor::Actions
 
     # required
     argument :username, type: :string
-    argument :server_url , type: :string, desc: DESC_CHEF_SERVER_URL
-    argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
+    # optional
     class_option :force, :aliases => '-f', :default => false, type: :boolean, desc: DESC_FORCE
 
     def delete_user
-      # define REST object
-      chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
       begin
         # prompt user
         exit unless  options[:force] || HighLine.agree("Deleting '#{username}' is permanent. Do you want to proceed? (y/n)")
 
         # disassociate from all orgs
-        orgs =  chef_rest.get_rest("users/#{username}/organizations")
+        orgs = self.chef_rest.get_rest("users/#{username}/organizations")
         org_names = orgs.map {|o| o['organization']['name']}
         org_names.each do |org|
            puts chef_rest.delete_rest("organizations/#{org}/users/#{username}")

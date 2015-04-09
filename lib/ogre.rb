@@ -1,16 +1,19 @@
 require 'thor'
-require 'ogre/messages'
-require 'ogre/create-org'
-require 'ogre/delete-org'
-require 'ogre/create-user'
-require 'ogre/delete-user'
-require 'ogre/config'
+require 'ogre/base'
 require 'ogre/associate'
+require 'ogre/config'
+require 'ogre/create-org'
+require 'ogre/create-user'
+require 'ogre/delete-org'
+require 'ogre/delete-user'
+require 'ogre/messages'
 
 # Refer to README.md for use instructions
 module Ogre
+
   # Start of main CLI
   class CLI < Thor
+
     package_name 'ogre'
     map '--version' => :version
     map '-v' => :version

@@ -19,5 +19,6 @@ module Ogre
   DESC_FORCE                = 'Delete without confirmation'
   DESC_CREATE_USER          = 'Create new chef user'
   DESC_DELETE_USER          = 'Delete and disassociate chef user'
+  DESC_RUN_AS               = 'Chef user'
 end
 # rubocop:enable LineLength

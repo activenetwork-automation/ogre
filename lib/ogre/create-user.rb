@@ -1,7 +1,7 @@
 require 'chef/rest'
 
 module Ogre
-  class CreateUser < Thor::Group
+  class CreateUser < Ogre::Base
     include Thor::Actions
 
     # required
@@ -10,12 +10,8 @@ module Ogre
     argument :last_name, type: :string
     argument :email, type: :string
     argument :password, type: :string
-    argument :server_url , type: :string, desc: DESC_CHEF_SERVER_URL
-    argument :key_path, type: :string, desc: DESC_PRIVATE_KEY
 
     def create_user
-      # define REST object
-      chef_rest = Chef::REST.new(server_url, RUN_AS_USER, key_path)
 
       begin
         # create user
@@ -27,7 +23,7 @@ module Ogre
         :email =>        email,
         :password =>     password }
 
-        response = chef_rest.post_rest("/users", user_json)
+        response = self.chef_rest.post_rest("/users", user_json)
 
         puts "'#{username}' has been created."
 

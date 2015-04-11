@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = %w('Joe Nguyen')
   spec.email         = %w('joe.nguyen@activenetwork.com')
   spec.summary       = 'Automated generation of enterprise chef organizations'
-  spec.description   = 'Command line tool to automate creation of chef organizations, platform-chef repositories, and validation key integration with vco'
+  spec.description   = 'Command line tool to automate creation of chef orgs, chef policy repositories, and validation key integration with vco'
   spec.homepage      = ''
   spec.license       = 'Apache 2.0'
 

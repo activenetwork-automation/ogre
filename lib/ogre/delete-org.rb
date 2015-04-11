@@ -16,7 +16,7 @@ module Ogre
         exit unless options[:force] || HighLine.agree("Deleting '#{org}' is permanent. Do you want to proceed? (y/n)")
 
         begin
-          self.chef_rest.delete_rest("/organizations/test")
+          self.chef_rest.delete_rest("/organizations/#{org}")
           puts "'#{org}' org has been deleted."
         rescue Net::HTTPServerException => e
           # does not exist, exit gracefully

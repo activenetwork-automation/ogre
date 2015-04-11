@@ -6,9 +6,7 @@ module Ogre
   CONFIG_PATH = "#{OGRE_HOME}/config"
 
   # read config
-  conf_opts = {}
-
-  conf_opts = JSON.parse(File.read(CONFIG_PATH), symbolize_names: true) unless !File.exist?(CONFIG_PATH)
+  conf_opts = (JSON.parse(File.read(CONFIG_PATH), symbolize_names: true) if File.exist?(CONFIG_PATH)) || {}
 
   RUN_AS_USER = conf_opts[:username]
   END_POINT = conf_opts[:endpoint]

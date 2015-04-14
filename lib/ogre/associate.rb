@@ -24,7 +24,7 @@ module Ogre
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
         if e.response.code == '409'
-          puts "User #{user} already associated with organization #{org}"
+          puts "User '#{user}' already associated with organization '#{org}'"
         else
           raise e
         end
@@ -47,7 +47,7 @@ module Ogre
             }
           }
           chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
-          puts "Successfully added #{user} to #{groupname} in the #{org} org"
+          puts "Successfully added '#{user}' to '#{groupname}' in the #{org} org"
         end
       end
     end

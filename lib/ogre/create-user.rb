@@ -12,7 +12,7 @@ module Ogre
     argument :password, type: :string
 
     def create_user
-
+      puts '???'
       begin
         # create user
         user_json = {
@@ -21,9 +21,10 @@ module Ogre
         :last_name =>    last_name,
         :display_name => "#{first_name} #{last_name}",
         :email =>        email,
-        :password =>     password }
+        :password =>     password
+        }
 
-        response = self.chef_rest.post_rest("/users", user_json)
+        self.chef_rest.post_rest('/users', user_json)
 
         puts "'#{username}' has been created."
 
@@ -31,7 +32,7 @@ module Ogre
 
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
-        if e.response.code == "409"
+        if e.response.code == '409'
           puts "'#{username}' already exists."
         else
           raise e

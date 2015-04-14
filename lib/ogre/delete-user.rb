@@ -24,12 +24,12 @@ module Ogre
         end
 
         # delete user
-        response = chef_rest.delete_rest("users/#{username}")
+        chef_rest.delete_rest("users/#{username}")
         puts "'#{username}' has been deleted."
 
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
-        if e.response.code == "404"
+        if e.response.code == '404'
           puts "'#{username}' not found."
         else
           raise e

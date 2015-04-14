@@ -20,7 +20,7 @@ module Ogre
           puts "'#{org}' org has been deleted."
         rescue Net::HTTPServerException => e
           # does not exist, exit gracefully
-          if e.response.code == "404"
+          if e.response.code == '404'
             puts "#{org} org does not exist"
           else
             raise e

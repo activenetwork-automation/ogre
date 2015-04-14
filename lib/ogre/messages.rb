@@ -5,7 +5,7 @@ module Ogre
   DESC_VERSION              = 'Display gem version'
   DESC_CREATE               = 'Create an organization in Chef'
   DESC_DELETE               = 'Delete an organization in Chef'
-  DESC_ORG                  = 'Organization shortname'
+  DESC_ORG                  = 'Organization short name'
   DESC_ORG_DESC             = 'Organization long name'
   DESC_PRIVATE_KEY          = 'Path to private key file'
   DESC_CHEF_SERVER_URL      = 'Chef Server URL i.e. https://chef.server.domain'
@@ -20,5 +20,10 @@ module Ogre
   DESC_CREATE_USER          = 'Create new chef user'
   DESC_DELETE_USER          = 'Delete and disassociate chef user'
   DESC_RUN_AS               = 'Chef user'
+  DESC_VCO_URL              = 'VCenter Orchestrator URL'
+  DESC_VCO_USER             = 'VCenter Orchestrator user'
+  DESC_VCO_PASSWORD         = 'VCenter Orchestrator password'
+  DESC_VCO_WF_NAME          = 'VCenter Orchestrator workflow name'
+  DESC_SET_PRIVATE_KEY      = 'Set chef validation key for VCO'
 end
 # rubocop:enable LineLength

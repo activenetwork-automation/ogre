@@ -19,4 +19,5 @@ module Ogre
   VCO_USER = conf_opts[:vco_user]
   VCO_PASSWORD = conf_opts[:vco_password]
   VCO_WF_NAME = conf_opts[:vco_wf_name]
+  VCO_VERIFY_SSL = conf_opts[:verify_ssl]
 end

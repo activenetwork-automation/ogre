@@ -30,7 +30,7 @@ module Ogre
     register(Ogre::CreateUser, 'create_user', 'create-user ' << Ogre::CreateUser.arguments.map(&:name).join(' ').upcase, DESC_CREATE_USER)
     register(Ogre::DeleteUser, 'delete_user', 'delete-user ' << Ogre::DeleteUser.arguments.map(&:name).join(' ').upcase, DESC_DELETE_USER)
     register(Ogre::Associate, 'associate', 'associate ' << Ogre::Associate.arguments.map(&:name).join(' ').upcase, DESC_ASSOCIATE_USERS)
-    register(Ogre::SetPrivateKey, 'set_private_key', 'set-private-key' << Ogre::SetPrivateKey.arguments.map(&:name).join(' ').upcase, DESC_SET_PRIVATE_KEY)
+    register(Ogre::SetPrivateKey, 'set_private_key', 'set-private-key ' << Ogre::SetPrivateKey.arguments.map(&:name).join(' ').upcase, DESC_SET_PRIVATE_KEY)
 
     # workaround to include options in 'ogre help command'
     tasks['create_user'].options = Ogre::CreateUser.class_options

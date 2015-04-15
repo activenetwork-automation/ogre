@@ -20,10 +20,12 @@ module Ogre
   DESC_CREATE_USER          = 'Create new chef user'
   DESC_DELETE_USER          = 'Delete and disassociate chef user'
   DESC_RUN_AS               = 'Chef user'
-  DESC_VCO_URL              = 'VCenter Orchestrator URL'
-  DESC_VCO_USER             = 'VCenter Orchestrator user'
-  DESC_VCO_PASSWORD         = 'VCenter Orchestrator password'
-  DESC_VCO_WF_NAME          = 'VCenter Orchestrator workflow name'
+  DESC_VCO_URL              = 'vCenter Orchestrator URL'
+  DESC_VCO_USER             = 'vCenter Orchestrator user'
+  DESC_VCO_PASSWORD         = 'vCenter Orchestrator password'
+  DESC_VCO_WF_NAME          = 'vCenter Orchestrator workflow name'
   DESC_SET_PRIVATE_KEY      = 'Set chef validation key for VCO'
+  DESC_CHEF_HOSTNAME        = 'Chef hostname'
+  DESC_CHEF_VALIDATOR       = 'Chef validator username'
 end
 # rubocop:enable LineLength

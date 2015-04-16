@@ -1,7 +1,5 @@
-require 'chef/rest'
-
 module Ogre
-  class CreateUser < Ogre::Base
+  class UserCreate < Ogre::Base
     include Thor::Actions
 
     # required
@@ -11,17 +9,16 @@ module Ogre
     argument :email, type: :string
     argument :password, type: :string
 
-    def create_user
-      puts '???'
+    def user_create
       begin
         # create user
         user_json = {
-        :username =>     username,
-        :first_name =>   first_name,
-        :last_name =>    last_name,
-        :display_name => "#{first_name} #{last_name}",
-        :email =>        email,
-        :password =>     password
+          username:     username,
+          first_name:   first_name,
+          last_name:    last_name,
+          display_name: "#{first_name} #{last_name}",
+          email:        email,
+          password:     password
         }
 
         self.chef_rest.post_rest('/users', user_json)

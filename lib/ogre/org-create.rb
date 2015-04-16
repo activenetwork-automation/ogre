@@ -2,19 +2,19 @@ require 'chef/rest'
 require 'chef-dk/command/generator_commands/repo'
 
 module Ogre
-  class CreateOrg < Ogre::Base
+  class OrgCreate < Ogre::Base
 
     # required
     argument :org, type: :string, desc: DESC_ORG
     argument :org_desc, type: :string, desc: DESC_ORG_DESC
 
     # optional chef policy repo parameters
-    class_option :create_repo, :aliases => '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
-    class_option :license, :aliases => '-I', :default => 'apache2', type: :string, desc: DESC_REPO_LICENSE
-    class_option :email, :aliases => '-m', type: :string, desc: DESC_REPO_EMAIL
-    class_option :authors, :aliases => '-C', type: :string, desc: DESC_REPO_AUTHORS
+    class_option :create_repo, aliases: '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
+    class_option :license, aliases: '-I', default: 'apache2', type: :string, desc: DESC_REPO_LICENSE
+    class_option :email, aliases: '-m', type: :string, desc: DESC_REPO_EMAIL
+    class_option :authors, aliases: '-C', type: :string, desc: DESC_REPO_AUTHORS
 
-    def create_org
+    def org_create
       begin
         # create org
         org_json = { name: "#{org}", full_name: "#{org_desc}" }
@@ -52,7 +52,7 @@ module Ogre
 
       # chef server url
       generate_str << '-a'
-      generate_str << "chef_server_url=#{options[:server_url] || END_POINT}"
+      generate_str << "chef_server_url=#{options[:server_url] || Config.options[:server_url]}"
 
       # generator skeleton
       generate_str << '-g'

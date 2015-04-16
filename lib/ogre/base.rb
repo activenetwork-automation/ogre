@@ -1,3 +1,5 @@
+require 'chef/rest'
+
 module Ogre
   class Base < Thor::Group
     include Thor::Actions
@@ -9,9 +11,9 @@ module Ogre
 
     # parameters passed in from cli will take precedence
     def chef_rest
-      Chef::REST.new(options[:server_url] || END_POINT,
-                     options[:run_as] || RUN_AS_USER,
-                     options[:key_path] || KEY_PATH)
+      Chef::REST.new(options[:server_url] || Config.options[:server_url],
+                     options[:run_as] || Config.options[:run_as],
+                     options[:key_path] || Config.options[:key_path])
     end
   end
 end

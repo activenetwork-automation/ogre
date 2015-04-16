@@ -14,15 +14,16 @@ module Ogre
     class_option :vco_user, tydpe: :string, desc: DESC_VCO_USER
     class_option :vco_password, type: :string, desc: DESC_VCO_PASSWORD
     class_option :vco_wf_name, type: :string, desc: DESC_VCO_WF_NAME
-    class_option :vco_verify_ssl, type: :boolean, default: true, desc: DESC_VCO_WF_NAME
+    class_option :vco_verify_ssl, type: :boolean, desc: DESC_VCO_WF_NAME
 
     def set_private_key
+
       # get workflow
-      workflow = VcoWorkflows::Workflow.new(options[:vco_wf_name] || VCO_WF_NAME,
-                                             url: options[:vco_url] || VCO_URL,
-                                             verify_ssl: false,
-                                             username: options[:vco_user] || VCO_USER,
-                                             password: options[:vco_password] || VCO_PASSWORD)
+      workflow = VcoWorkflows::Workflow.new(options[:vco_wf_name]    || Config.options[:vco_wf_name],
+                                url:        options[:vco_url]        || Config.options[:vco_url] ,
+                                verify_ssl: options[:vco_verify_ssl] || YAML.load(Config.options[:vco_verify_ssl]),
+                                username:   options[:vco_user]       || Config.options[:vco_user],
+                                password:   options[:vco_password]   || Config.options[:vco_password])
 
       # set parameters
       workflow.parameter('chefHostname', chef_hostname)
@@ -52,5 +53,3 @@ module Ogre
     end
   end
 end
-
-

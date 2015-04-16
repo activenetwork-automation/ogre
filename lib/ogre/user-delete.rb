@@ -1,16 +1,14 @@
-require 'chef/rest'
-
 module Ogre
-  class DeleteUser < Ogre::Base
+  class UserDelete < Ogre::Base
     include Thor::Actions
 
     # required
     argument :username, type: :string
 
     # optional
-    class_option :force, :aliases => '-f', :default => false, type: :boolean, desc: DESC_FORCE
+    class_option :force, aliases: '-f', default: false, type: :boolean, desc: DESC_FORCE
 
-    def delete_user
+    def user_delete
 
       begin
         # prompt user

@@ -1,6 +1,5 @@
-require 'chef/rest'
-
 module Ogre
+  # associate user to org bypassing the association request
   class Associate < Ogre::Base
     include Thor::Actions
 
@@ -9,7 +8,7 @@ module Ogre
     argument :user, type: :string, desc: DESC_USER
 
     # optional
-    class_option :admin, :aliases => '-a', type: :boolean, desc: DESC_ASSOCIATE_ADMIN
+    class_option :admin, aliases: '-a', type: :boolean, desc: DESC_ASSOCIATE_ADMIN
 
     def associate
 
@@ -40,12 +39,13 @@ module Ogre
         # check if user is in group
         unless group['actors'].include?(user)
           body_hash = {
-            :groupname => "#{groupname}",
-            :actors => {
-              :users => group['actors'].concat([user]),
-              :groups => group['groups']
+            groupname: "#{groupname}",
+            actors: {
+              users: group['actors'].concat([user]),
+              groups: group['groups']
             }
           }
+
           chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
           puts "Successfully added '#{user}' to '#{groupname}' in the #{org} org"
         end

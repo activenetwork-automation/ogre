@@ -1,16 +1,13 @@
-require 'chef/rest'
-require 'highline/import'
-
 module Ogre
-  class DeleteOrg < Ogre::Base
+  class OrgDelete < Ogre::Base
     include Thor::Actions
 
     # required
     argument :org, type: :string, desc: DESC_ORG
 
-    class_option :force, :aliases => '-f', :default => false, type: :boolean, desc: DESC_FORCE
+    class_option :force, aliases: '-f', default: false, type: :boolean, desc: DESC_FORCE
 
-      def delete_org
+      def org_delete
 
         # prompt user
         exit unless options[:force] || HighLine.agree("Deleting '#{org}' is permanent. Do you want to proceed? (y/n)")

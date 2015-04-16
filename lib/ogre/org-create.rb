@@ -1,9 +1,8 @@
-require 'chef/rest'
 require 'chef-dk/command/generator_commands/repo'
 
 module Ogre
+  # organization create
   class OrgCreate < Ogre::Base
-
     # required
     argument :org, type: :string, desc: DESC_ORG
     argument :org_desc, type: :string, desc: DESC_ORG_DESC
@@ -15,30 +14,28 @@ module Ogre
     class_option :authors, aliases: '-C', type: :string, desc: DESC_REPO_AUTHORS
 
     def org_create
-      begin
-        # create org
-        org_json = { name: "#{org}", full_name: "#{org_desc}" }
-        response = self.chef_rest.post_rest('/organizations', org_json)
-        puts "'#{org}' org has been created."
+      # create org
+      org_json = { name: "#{org}", full_name: "#{org_desc}" }
+      response = chef_rest.post_rest('/organizations', org_json)
+      puts "'#{org}' org has been created."
 
-        # use chef repo generate to create a chef policy repo
-        if options[:create_repo]
-          Dir.mkdir OGRE_HOME unless File.exists?(OGRE_HOME)
-          generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params)
-          generate_cmd.run
-          File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", 'w') do |f|
-            f.print(response['private_key'])
-          end
-        else
-          puts response['private_key']
+      # use chef repo generate to create a chef policy repo
+      if options[:create_repo]
+        Dir.mkdir OGRE_HOME unless File.exist?(OGRE_HOME)
+        generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params)
+        generate_cmd.run
+        File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", 'w') do |f|
+          f.print(response['private_key'])
         end
-      rescue Net::HTTPServerException => e
-        # already exists -- i will allow it
-        if e.response.code == '409'
-          puts "#{org} org already exists"
-        else
-          raise e
-        end
+      else
+        puts response['private_key']
+      end
+    rescue Net::HTTPServerException => e
+      # already exists -- i will allow it
+      if e.response.code == '409'
+        puts "#{org} org already exists"
+      else
+        raise e
       end
     end
 
@@ -78,6 +75,5 @@ module Ogre
 
       generate_str
     end
-
   end
 end

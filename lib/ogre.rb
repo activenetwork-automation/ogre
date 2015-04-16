@@ -12,10 +12,8 @@ require 'ogre/user-delete'
 
 # Refer to README.md for use instructions
 module Ogre
-
   # Start of main CLI
   class CLI < Thor
-
     package_name 'ogre'
     map '--version' => :version
     map '-v' => :version
@@ -26,12 +24,14 @@ module Ogre
     end
 
     # subcommand in Thor called as registered class
+    # rubocop:disable LineLength
     register(OrgCreate, 'org_create', 'org-create ' << OrgCreate.arguments.map(&:name).join(' ').upcase, DESC_CREATE)
     register(OrgDelete, 'org_delete', 'org-delete ' << OrgDelete.arguments.map(&:name).join(' ').upcase, DESC_DELETE)
     register(UserCreate, 'user_create', 'user-create ' << UserCreate.arguments.map(&:name).join(' ').upcase, DESC_CREATE_USER)
     register(UserDelete, 'user_delete', 'user-delete ' << UserDelete.arguments.map(&:name).join(' ').upcase, DESC_DELETE_USER)
     register(Associate, 'associate', 'associate ' << Associate.arguments.map(&:name).join(' ').upcase, DESC_ASSOCIATE_USERS)
     register(SetPrivateKey, 'set_private_key', 'set-private-key ' << SetPrivateKey.arguments.map(&:name).join(' ').upcase, DESC_SET_PRIVATE_KEY)
+    # rubocop:enable LineLength
 
     # workaround to include options in 'ogre help command'
     tasks['user_create'].options = UserCreate.class_options

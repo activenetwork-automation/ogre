@@ -2,8 +2,14 @@ AllCops:
   Exclude:
     - Guardfile
     - vendor/**/*
-    - example.rb
+    - lib/ogre/skeletons/**/*
 Metrics/AbcSize:
   Enabled: false
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 50
 Style/SpecialGlobalVars:
+  Enabled: false
+Style/FileName:
   Enabled: false

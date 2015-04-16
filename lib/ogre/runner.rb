@@ -40,4 +40,3 @@ module Ogre
     # rubocop:enable MethodLength
   end
 end
-

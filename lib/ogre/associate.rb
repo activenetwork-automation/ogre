@@ -11,15 +11,14 @@ module Ogre
     class_option :admin, aliases: '-a', type: :boolean, desc: DESC_ASSOCIATE_ADMIN
 
     def associate
-
       begin
         # associate (invite) user
-        request_body = {:user => user}
+        request_body = { user: user }
         response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
 
         # add (force) user to org
         association_id = response['uri'].split('/').last
-        self.chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", { :response => 'accept' }
+        chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", response: 'accept'
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
         if e.response.code == '409'
@@ -31,7 +30,7 @@ module Ogre
 
       # add to admin?
       groups = ['users']
-      if options[:admin]; groups << 'admins' end
+      groups << 'admins' if options[:admin]
 
       # add user to group(s)
       groups.each do |groupname|
@@ -49,6 +48,7 @@ module Ogre
           chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
           puts "Successfully added '#{user}' to '#{groupname}' in the #{org} org"
         end
+        next
       end
     end
   end

@@ -1,6 +1,7 @@
 require 'chef/rest'
 
 module Ogre
+  # base ogre class
   class Base < Thor::Group
     include Thor::Actions
 

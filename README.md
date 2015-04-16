@@ -29,7 +29,7 @@ All of the parameters here are optional and can be passed in and/or overriden at
 ```
 
 ## Usage
-ogre org-create ORG ORG_DESC (options)
+ogre org-create ORG DESCRIPTION (options)
 ---
 - `-p`, `--create-repo` Create Chef policy repository-
 - `-I`, `--license=LICENSE` Chef policy repository license

@@ -12,7 +12,7 @@ While this functionality already exists in [knife-opc](https://github.com/chef/k
 
 ### ~/.ogre/config.json
 
-All of the parameters here are optional and can be passed in and/or overriden at the CLI.  As of today, the `pivotal` user and it's key is the way to execute certain commands via the  [Chef API](https://docs.chef.io/api_chef_server.html).  The key can be found in `/etc/opscode/pivotal.pem` on the Enterprise Chef box.
+All of the parameters here are optional and can be passed in and/or overriden at the CLI.  As of today, the `pivotal` user is the only user able to execute certain methods via the [Chef API](https://docs.chef.io/api_chef_server.html).  The key can be found in `/etc/opscode/pivotal.pem` on the Enterprise Chef box.
 
 ``` json
 {

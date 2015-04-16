@@ -77,7 +77,7 @@ ogre set-private-key CHEF_HOSTNAME CHEF_VALIDATOR_NAME KEY_PATH (options)
 - [Joe Nguyen](https://github.com/jnguyen)
 
 ```
-Copyright 2014 ACTIVE Network, LLC
+Copyright 2015 ACTIVE Network, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

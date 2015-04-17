@@ -58,11 +58,11 @@ ogre set-private-key CHEF_HOSTNAME CHEF_VALIDATOR_NAME KEY_PATH (options)
 
 `set-private-key` is very opinionated to our needs.  We have a vco workflow called `Set Private Key` which takes in `CHEF_HOSTNAME`, `CHEF_VALIDATOR_NAME`, and `KEY_PATH`.  This is stored in Orchestrator so that our organzation has the correct permissions to provision and bootstrap nodes.
 
-- '--vco-url=VCO_URL' vCenter Orchestrator URL
-- '--vco-user=VCO_USER' vCenter Orchestrator user
-- '--vco-password' vCenter Orchestrator password
-- '--vco-wf-name' vCenter Orchestrator workflow name
-- '--vco-verify-ssl' vCenter Orchestrator workflow name
+- `--vco-url` vCenter Orchestrator URL
+- `--vco-user` vCenter Orchestrator user
+- `--vco-password` vCenter Orchestrator password
+- `--vco-wf-name` vCenter Orchestrator workflow name
+- `--vco-verify-ssl` vCenter Orchestrator workflow name
 
 ## Contributing
 

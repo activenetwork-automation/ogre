@@ -56,7 +56,7 @@ ogre associate ORG USER (options)
 ogre set-private-key CHEF_HOSTNAME CHEF_VALIDATOR_NAME KEY_PATH (options)
 ---
 
-`set-private-key` is very opinionated to our needs.  We have a vco workflow called `Set Private Key` which takes in `CHEF_HOSTNAME`, `CHEF_VALIDATOR_NAME`, and `KEY_PATH`.  This is stored in Orchestrator so that our organzation has the correct permissions to provision and bootstrap nodes.
+`set-private-key` is very opinionated to our needs.  We have a vco workflow called `Set Private Key` which takes in `CHEF_HOSTNAME`, `CHEF_VALIDATOR_NAME`, and `KEY_PATH`.  This is stored in Orchestrator so that our organzation has the correct permissions to bootstrap nodes.
 
 - `--vco-url` vCenter Orchestrator URL
 - `--vco-user` vCenter Orchestrator user

@@ -45,6 +45,7 @@ module Ogre
             }
           }
 
+          # associate user
           chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
           puts "Successfully added '#{user}' to '#{groupname}' in the #{org} org"
         end

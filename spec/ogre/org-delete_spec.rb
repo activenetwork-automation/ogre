@@ -19,7 +19,7 @@ describe Ogre::OrgDelete do
     end
   end
 
-  it 'delete org' do
+  it 'should delete org' do
     args = %w(my-org-name -f --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("org-delete") do
       options = Ogre::OrgDelete.start(args)

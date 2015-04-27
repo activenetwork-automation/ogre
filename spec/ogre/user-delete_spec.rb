@@ -19,7 +19,7 @@ describe Ogre::UserDelete do
     end
   end
 
-  it 'delete user' do
+  it 'should delete user' do
     args = %w(user -f --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("user-delete") do
       options = Ogre::UserDelete.start(args)

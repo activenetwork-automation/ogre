@@ -19,7 +19,7 @@ describe Ogre::UserCreate do
     end
   end
 
-  it 'create new user' do
+  it 'should create new user' do
     args = %w(user firstname lastname user@exmaple.com password123 --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("user-create") do
       options = Ogre::UserCreate.start(args)

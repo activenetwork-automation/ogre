@@ -19,21 +19,21 @@ describe Ogre::OrgCreate do
     end
   end
 
-  it 'create new org' do
+  it 'should create new org' do
     args = %w(my-org-name my-org-desc --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("org-create") do
       options = Ogre::OrgCreate.start(args)
     end
   end
 
-  it 'create new org and save chef policy repository' do
+  it 'should create new org and save chef policy repository' do
     args = %w(my-org-name my-org-desc -p -P tmp --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("org-create") do
       options = Ogre::OrgCreate.start(args)
     end
   end
 
-  it 'create new org and save chef policy repository with parameters' do
+  it 'should create new org and save chef policy repository with parameters' do
     args = %w(my-org-name my-org-desc -p -P tmp -I mit -m email@exmaple.com -C Top-Chefs --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette("org-create") do
       options = Ogre::OrgCreate.start(args)

@@ -31,7 +31,8 @@ All of the parameters here are optional and can be passed in and/or overriden at
 ## Usage
 ogre org-create ORG DESCRIPTION (options)
 ---
-- `-p`, `--create-repo` Create Chef policy repository-
+- `-p`, `--create-repo` Create Chef policy repository
+- `-P`, `--repo-path` Chef policy repo path
 - `-I`, `--license=LICENSE` Chef policy repository license
 - `-m`, `--email=EMAIL` Chef policy repository e-mail
 - `-C`, `--authors=AUTHORS` Chef policy repository authors

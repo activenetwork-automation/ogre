@@ -1,0 +1,136 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chef.server/users/user/organizations
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-27T20:22:32Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - 71cc9890-ffcb-4597-a996-55e560753739
+      X-Chef-Version:
+      - 12.2.1
+      User-Agent:
+      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Mon, 27 Apr 2015 20:22:23 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 20:22:32 GMT
+- request:
+    method: delete
+    uri: https://chef.server/users/user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-27T20:22:32Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - 71cc9890-ffcb-4597-a996-55e560753739
+      X-Chef-Version:
+      - 12.2.1
+      User-Agent:
+      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Mon, 27 Apr 2015 20:22:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA2WSzZKiMBhFX8Vy2/OjgjbOaoIgRgUNDCVYVHUFCBAICERQ
+        6Jp3H3R6ZtNZnbr3rHK/93HDSV3gnIx/PHH8ZVw2PqPBW0a6Ifv6eLKqQWN0
+        tOU9XI12qvsMvUKHUIYpMOQ4q5KMasvbRAZIXQNwWAEkgUe/incDq2BS3Whr
+        JRVzz7BvA3V/sahX0HSlb3PZivwuSQml+nceNi4XIlFXCQYU7TDsWujXB2KZ
+        ChMx7Y6vSh5JqM+5sRG8wqHTvW2uYS7OtPOEikGoJfWSbJnDkbIOxXSGjzgK
+        1lunJ6Xjk0MXZ7GY2cu2mwtEULwiU43ghHid27ijHZNKH5kwhIdz9UvQqzk/
+        IcxFdq3bxSK3wjTXboK07PkUHQjkPoBeUZ1YFSqnUEjnAo2c+RIaSbeIHaHp
+        pGbSwIW16bGr2Ndm1eo84fD+IssviqmfNyWYXlSvSF/vZnNeqCayrjDwW02a
+        VHqFTq6EbWsTCkqyMZSCxlcgBEfmcumWzt2uF2iR3FQiDj85Q1ABCMhe8RxH
+        NZTPe3nFsC7JMWUfY/8k9xyXjHwLLvlQhZSXDHdvH+cQ0ZpfHzxi+C8MzjP8
+        ZAzFw/mX//d//wHj/2E7YAIAAA==
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 20:22:32 GMT
+recorded_with: VCR 2.9.3

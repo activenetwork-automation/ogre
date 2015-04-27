@@ -1,0 +1,239 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://user:password@vco.server:8281/vco/api/workflows?conditions=name=Set-Private-Key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      Content-Type:
+      - application/json; v=5.1.1;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Apr 2015 19:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"link":[{"attributes":[{"value":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/","name":"itemHref"},{"value":"some-long-workflow-id","name":"id"},{"value":"Chef","name":"categoryName"},{"value":"true","name":"canExecute"},{"value":"https://vco.server:8281/vco/api/catalog/System/WorkflowCategory/ff808081450a368901451a1076900130/","name":"categoryHref"},{"value":"Adds
+        a private key as a configuration item to \"Chef/Chef Private Keys\" for authentication
+        purposes.\n\nAll workflows that call the Chef API will read private keys from
+        this configuration.\n\nPrivate keys are stored in the Configuration item per
+        chef host and userid.\n\nThis workflow can also store validator keys.  Userid
+        of validator keys would be: <orgname>-validator","name":"description"},{"value":"Set
+        Private Key","name":"name"},{"value":"false","name":"customIcon"},{"value":"Workflow","name":"type"},{"value":"true","name":"canEdit"},{"value":"0.0.5","name":"version"}],"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/","rel":"down"}],"total":1}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:06 GMT
+- request:
+    method: get
+    uri: https://user:password@vco.server:8281/vco/api/workflows/some-long-workflow-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      Content-Type:
+      - application/json; v=5.1.1;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Apr 2015 19:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"relations":{"link":[{"href":"https://vco.server:8281/vco/api/inventory/System/Workflows/Library/Chef/","rel":"up"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/","rel":"executions"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/presentation/","rel":"presentation"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/tasks/","rel":"tasks"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/icon/","rel":"icon"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/schema/","rel":"schema"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/permissions/","rel":"permissions"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/interactions/","rel":"interactions"}]},"id":"some-long-workflow-id","name":"Set-Private-Key","version":"0.0.5","description":"Adds a private key as a configuration
+        item to \"Chef/Chef Private Keys\" for authentication purposes.\n\nAll workflows
+        that call the Chef API will read private keys from this configuration.\n\nPrivate
+        keys are stored in the Configuration item per chef host and userid.\n\nThis
+        workflow can also store validator keys.  Userid of validator keys would be:
+        <orgname>-validator","href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/","customized-icon":false,"input-parameters":[{"type":"string","name":"chefHostname"},{"type":"string","name":"userid"},{"description":"RSA
+        Private Key.  PKCS#1 PEM format","type":"string","name":"pem"}]}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:07 GMT
+- request:
+    method: get
+    uri: https://user:password@vco.server:8281/vco/api/workflows/some-long-workflow-id/presentation/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      Content-Type:
+      - application/json; v=5.1.1;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Apr 2015 19:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"relations":{"link":[{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/","rel":"up"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/presentation/instances/","rel":"instances"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/presentation/instances/","rel":"add"}]},"steps":[{"step":{"elements":[{"@type":"group","hidden":false,"messages":[],"fields":[{"@type":"field","fields":[],"id":"chefHostname","description":"chefHostname","hidden":false,"messages":[],"decorators":[],"type":"string","constraints":[],"display-name":"chefHostname"},{"@type":"field","fields":[],"id":"userid","description":"userid","hidden":false,"messages":[],"decorators":[],"type":"string","constraints":[],"display-name":"userid"},{"@type":"field","fields":[],"id":"pem","description":"pem","hidden":false,"messages":[],"decorators":[{"@type":"multiline"}],"type":"string","constraints":[],"display-name":"pem"}]}],"hidden":false,"messages":[]}}],"id":"some-long-workflow-id","name":"Set
+        Private Key","href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/presentation/","input-parameters":[{"description":"chefHostname","type":"string","name":"chefHostname"},{"description":"userid","type":"string","name":"userid"},{"description":"pem","type":"string","name":"pem"}],"output-parameters":[{"description":"RSA
+        Private Key.  PKCS#1 PEM format","type":"string","name":"pem"},{"type":"string","name":"chefHostname"},{"type":"string","name":"userid"}]}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:08 GMT
+- request:
+    method: post
+    uri: https://user:password@vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/
+    body:
+      encoding: UTF-8
+      string: '{"parameters":[{"type":"string","name":"chefHostname","scope":"local","value":{"string":{"value":"chef.server"}}},{"type":"string","name":"userid","scope":"local","value":{"string":{"value":"org-validator"}}},{"type":"string","name":"pem","scope":"local","value":{"string":{"value":"-----BEGIN
+        RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA3SqsHlVmqP6OxcMBZm96sObwGHK3pM7LHl6F8TZ3poPzFgut\nSVt2sBfHQZC2vXIN/lnwlExtixzttgd9F4VkGij5LX/crLZ8JV7he0/+c0Y/slAg\ndqe2AMRNuxAL+s/FpqVnB7iiePIxlA9sDFhsYyHz6QtwzIRAaxnlC/ZWzJCYRHxE\nhIwZMC1oZsPdSc9k5D60vIxJLHwQ/OOIhVjk6h+szS3uRUYpHiyywF09lwaCeKR0\nFqxqSBb5yJv9lzLqhJkhHM6t0y88rNWggwj3nE3YmlCHcp/B81BTbyXT2EpF6mbt\nCQbmDO118YHDDuXGiTuSimGx9oFyw9tMe8Nx/QIBIwKCAQEAl6g7goO0HBxEpN19\nTY5FgJ5bfnqMjkSoidpqeYRvTZxO6ouqBmqah2DDJaUPl9kuKsFUgvKUQiJ3Hbv+\nAYAKIJEf5K9yv5MTTNNYyZXwTwuZZFQzhJBCSast/J1KCxIhIdCBKd2xPP3Y2o47\ndi4BLginQLdjSmlQvngoCDPjv3fRNhvyoTNvKoiCXWFbw+Rnax1UpzAGL1u6JHjE\ndfLfRmJNdnOQVpnfUQ2ELoF6iTTB2/mJsbDcfAmKIGeWmXFa006f1RO3YxS+925t\n/7eoyPEAJ/fRBBzUZrkhoVjGaZXgEgmOw3k3rVQFbixZf0FXQpehwXyE4WCkY3rc\nF1AZawKBgQD6Rq/u9S8xhR9nvibntCqko/jBhqqBD2hhXh+w0WWSZcISLPoKNC1F\nL3ThiuBEm/jRpbxWJtfMNd0jcd4Nad8EoAHDxI7VYfsoYwVm2xnUe5ynAtpReOCC\n2t6xMNdYIy4X+CtkM/1uYFZkGAb3nN1a9ZvQoh1Crb+5pxcIKsYuTwKBgQDiOY4+\nZEc64lxCixmlF/epbrstF2Zpwq3q1D5j3UZ3kw4+/iCxks3TmIQbHFV7naDAx3GK\nd11ciAFCPNGJ4uPsGxoJlthtALXTIPnZPa33plG8B9d6fmqJV/j73a0FBcxHLULt\n9/ixJSc0mM9zmHPMUoKgrhmC1WoetlvDWahz8wKBgQDzIBie/M7CZA/hHx56rwTa\nc2atXj87i090h1H8OSDXW4lTfCYYinUeoyEVnNncP76Cg75FD8pRWOVy46SCDxMp\nEHa+LKgCfHBTHl0E1NdDcMQP9CSJqJ+VDyF47Z392Qg0iq3PDe7gQFPsNJkNy5Uz\nygUT0K61zVspYHzGGuxnfwKBgQCbICcGNiI3AZ5Zg/RT8y17fyFDfcKRqhDbijlp\nDMKbIwJ0VnzRiTyuWfQv2Ooo4R3GBRqoF1X2TqHHBSH4Jo2pNyfMD6pZX5KfZxG5\niWFZXBrKFAF4kTMcWZTJ9xeOamAwzpRLaDWAyQTw3dAUwE9niQkduTYQkldlhFwu\nLtnpGwKBgHblG0jaKbPGeE2QANZ1koiOoOHV007tGunmq/Bv2paRpgn/yzjpU/l8\noLWSvbabIU3ANxu6Ich6OGTikQqo+b+Pi0v5lv66nSb1lZSGk2NIll3SEF4/rmx/\n5ijGogq7y/I62ZoYUy4oZ/tKVQMqIgn3tGJ3sGImxeSwfKzxfLer\n-----END
+        RSA PRIVATE KEY-----\n"}}}]}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2010'
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Location:
+      - https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/
+      Content-Length:
+      - '0'
+      Date:
+      - Mon, 27 Apr 2015 19:40:01 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:11 GMT
+- request:
+    method: get
+    uri: https://user:password@vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      Content-Type:
+      - application/json; v=5.1.1;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Apr 2015 19:40:07 GMT
+    body:
+      encoding: UTF-8
+      string: '{"relations":{"link":[{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/","rel":"up"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/","rel":"remove"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/logs/","rel":"logs"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/state/","rel":"state"}]},"id":"some-long-execution-id","state":"completed","name":"Set-Private-Key","href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/","start-date":1430163601587,"end-date":1430163601703,"started-by":"user@example.com","input-parameters":[{"value":{"string":{"value":"chef.server"}},"type":"string","name":"chefHostname","scope":"local"},{"value":{"string":{"value":"org-validator"}},"type":"string","name":"userid","scope":"local"},{"value":{"string":{"value":"-----BEGIN
+        RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA3SqsHlVmqP6OxcMBZm96sObwGHK3pM7LHl6F8TZ3poPzFgut\nSVt2sBfHQZC2vXIN/lnwlExtixzttgd9F4VkGij5LX/crLZ8JV7he0/+c0Y/slAg\ndqe2AMRNuxAL+s/FpqVnB7iiePIxlA9sDFhsYyHz6QtwzIRAaxnlC/ZWzJCYRHxE\nhIwZMC1oZsPdSc9k5D60vIxJLHwQ/OOIhVjk6h+szS3uRUYpHiyywF09lwaCeKR0\nFqxqSBb5yJv9lzLqhJkhHM6t0y88rNWggwj3nE3YmlCHcp/B81BTbyXT2EpF6mbt\nCQbmDO118YHDDuXGiTuSimGx9oFyw9tMe8Nx/QIBIwKCAQEAl6g7goO0HBxEpN19\nTY5FgJ5bfnqMjkSoidpqeYRvTZxO6ouqBmqah2DDJaUPl9kuKsFUgvKUQiJ3Hbv+\nAYAKIJEf5K9yv5MTTNNYyZXwTwuZZFQzhJBCSast/J1KCxIhIdCBKd2xPP3Y2o47\ndi4BLginQLdjSmlQvngoCDPjv3fRNhvyoTNvKoiCXWFbw+Rnax1UpzAGL1u6JHjE\ndfLfRmJNdnOQVpnfUQ2ELoF6iTTB2/mJsbDcfAmKIGeWmXFa006f1RO3YxS+925t\n/7eoyPEAJ/fRBBzUZrkhoVjGaZXgEgmOw3k3rVQFbixZf0FXQpehwXyE4WCkY3rc\nF1AZawKBgQD6Rq/u9S8xhR9nvibntCqko/jBhqqBD2hhXh+w0WWSZcISLPoKNC1F\nL3ThiuBEm/jRpbxWJtfMNd0jcd4Nad8EoAHDxI7VYfsoYwVm2xnUe5ynAtpReOCC\n2t6xMNdYIy4X+CtkM/1uYFZkGAb3nN1a9ZvQoh1Crb+5pxcIKsYuTwKBgQDiOY4+\nZEc64lxCixmlF/epbrstF2Zpwq3q1D5j3UZ3kw4+/iCxks3TmIQbHFV7naDAx3GK\nd11ciAFCPNGJ4uPsGxoJlthtALXTIPnZPa33plG8B9d6fmqJV/j73a0FBcxHLULt\n9/ixJSc0mM9zmHPMUoKgrhmC1WoetlvDWahz8wKBgQDzIBie/M7CZA/hHx56rwTa\nc2atXj87i090h1H8OSDXW4lTfCYYinUeoyEVnNncP76Cg75FD8pRWOVy46SCDxMp\nEHa+LKgCfHBTHl0E1NdDcMQP9CSJqJ+VDyF47Z392Qg0iq3PDe7gQFPsNJkNy5Uz\nygUT0K61zVspYHzGGuxnfwKBgQCbICcGNiI3AZ5Zg/RT8y17fyFDfcKRqhDbijlp\nDMKbIwJ0VnzRiTyuWfQv2Ooo4R3GBRqoF1X2TqHHBSH4Jo2pNyfMD6pZX5KfZxG5\niWFZXBrKFAF4kTMcWZTJ9xeOamAwzpRLaDWAyQTw3dAUwE9niQkduTYQkldlhFwu\nLtnpGwKBgHblG0jaKbPGeE2QANZ1koiOoOHV007tGunmq/Bv2paRpgn/yzjpU/l8\noLWSvbabIU3ANxu6Ich6OGTikQqo+b+Pi0v5lv66nSb1lZSGk2NIll3SEF4/rmx/\n5ijGogq7y/I62ZoYUy4oZ/tKVQMqIgn3tGJ3sGImxeSwfKzxfLer\n-----END
+        RSA PRIVATE KEY-----\n"}},"type":"string","name":"pem","scope":"local"}],"output-parameters":[]}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:17 GMT
+- request:
+    method: get
+    uri: https://user:password@vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+      X-Ops-Userid: pivotal
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      Content-Type:
+      - application/json; v=5.1.1;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Apr 2015 19:40:11 GMT
+    body:
+      encoding: UTF-8
+      string: '{"relations":{"link":[{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/","rel":"up"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/","rel":"remove"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/logs/","rel":"logs"},{"href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/state/","rel":"state"}]},"id":"some-long-execution-id","state":"completed","name":"Set-Private-Key","href":"https://vco.server:8281/vco/api/workflows/some-long-workflow-id/executions/some-long-execution-id/","start-date":1430163601587,"end-date":1430163601703,"started-by":"user@example.com","input-parameters":[{"value":{"string":{"value":"chef.server"}},"type":"string","name":"chefHostname","scope":"local"},{"value":{"string":{"value":"org-validator"}},"type":"string","name":"userid","scope":"local"},{"value":{"string":{"value":"-----BEGIN
+        RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA3SqsHlVmqP6OxcMBZm96sObwGHK3pM7LHl6F8TZ3poPzFgut\nSVt2sBfHQZC2vXIN/lnwlExtixzttgd9F4VkGij5LX/crLZ8JV7he0/+c0Y/slAg\ndqe2AMRNuxAL+s/FpqVnB7iiePIxlA9sDFhsYyHz6QtwzIRAaxnlC/ZWzJCYRHxE\nhIwZMC1oZsPdSc9k5D60vIxJLHwQ/OOIhVjk6h+szS3uRUYpHiyywF09lwaCeKR0\nFqxqSBb5yJv9lzLqhJkhHM6t0y88rNWggwj3nE3YmlCHcp/B81BTbyXT2EpF6mbt\nCQbmDO118YHDDuXGiTuSimGx9oFyw9tMe8Nx/QIBIwKCAQEAl6g7goO0HBxEpN19\nTY5FgJ5bfnqMjkSoidpqeYRvTZxO6ouqBmqah2DDJaUPl9kuKsFUgvKUQiJ3Hbv+\nAYAKIJEf5K9yv5MTTNNYyZXwTwuZZFQzhJBCSast/J1KCxIhIdCBKd2xPP3Y2o47\ndi4BLginQLdjSmlQvngoCDPjv3fRNhvyoTNvKoiCXWFbw+Rnax1UpzAGL1u6JHjE\ndfLfRmJNdnOQVpnfUQ2ELoF6iTTB2/mJsbDcfAmKIGeWmXFa006f1RO3YxS+925t\n/7eoyPEAJ/fRBBzUZrkhoVjGaZXgEgmOw3k3rVQFbixZf0FXQpehwXyE4WCkY3rc\nF1AZawKBgQD6Rq/u9S8xhR9nvibntCqko/jBhqqBD2hhXh+w0WWSZcISLPoKNC1F\nL3ThiuBEm/jRpbxWJtfMNd0jcd4Nad8EoAHDxI7VYfsoYwVm2xnUe5ynAtpReOCC\n2t6xMNdYIy4X+CtkM/1uYFZkGAb3nN1a9ZvQoh1Crb+5pxcIKsYuTwKBgQDiOY4+\nZEc64lxCixmlF/epbrstF2Zpwq3q1D5j3UZ3kw4+/iCxks3TmIQbHFV7naDAx3GK\nd11ciAFCPNGJ4uPsGxoJlthtALXTIPnZPa33plG8B9d6fmqJV/j73a0FBcxHLULt\n9/ixJSc0mM9zmHPMUoKgrhmC1WoetlvDWahz8wKBgQDzIBie/M7CZA/hHx56rwTa\nc2atXj87i090h1H8OSDXW4lTfCYYinUeoyEVnNncP76Cg75FD8pRWOVy46SCDxMp\nEHa+LKgCfHBTHl0E1NdDcMQP9CSJqJ+VDyF47Z392Qg0iq3PDe7gQFPsNJkNy5Uz\nygUT0K61zVspYHzGGuxnfwKBgQCbICcGNiI3AZ5Zg/RT8y17fyFDfcKRqhDbijlp\nDMKbIwJ0VnzRiTyuWfQv2Ooo4R3GBRqoF1X2TqHHBSH4Jo2pNyfMD6pZX5KfZxG5\niWFZXBrKFAF4kTMcWZTJ9xeOamAwzpRLaDWAyQTw3dAUwE9niQkduTYQkldlhFwu\nLtnpGwKBgHblG0jaKbPGeE2QANZ1koiOoOHV007tGunmq/Bv2paRpgn/yzjpU/l8\noLWSvbabIU3ANxu6Ich6OGTikQqo+b+Pi0v5lv66nSb1lZSGk2NIll3SEF4/rmx/\n5ijGogq7y/I62ZoYUy4oZ/tKVQMqIgn3tGJ3sGImxeSwfKzxfLer\n-----END
+        RSA PRIVATE KEY-----\n"}},"type":"string","name":"pem","scope":"local"}],"output-parameters":[]}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 19:40:21 GMT
+recorded_with: VCR 2.9.3

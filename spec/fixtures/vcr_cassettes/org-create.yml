@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://chef.server/organizations
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"my-org-name","full_name":"my-org-desc"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-27T16:24:27Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - fb8dd801-3085-421a-be65-16254c897411
+      Content-Length:
+      - '48'
+      X-Chef-Version:
+      - 12.2.1
+      User-Agent:
+      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Mon, 27 Apr 2015 16:24:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1813'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Location:
+      - https://chef.server/organizations/undefined/clients/my-org-name-validator
+    body:
+      encoding: UTF-8
+      string: '{"uri":"https://chef.server/organizations/my-org-name","clientname":"my-org-name-validator","private_key":"-----BEGIN
+        RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA17mQqeTDqdT1ZPJVwP7mJo0wHxc1ta++ZWBusHPMLLhfalDY\n7GWizERZRSjtcNxQDBuCfzjlvpBhpsh6rFV1/FaJw5aEPh0OhXBKMnkzQHBkR+LY\nI+D9YMjuRQYzBMCoezDm5bwsPBHAo0fXVWP/ORb/mbVg1HXjyNSAg7iTJtDF1EYx\nAF2OqzBT7M+rf1IahiITh6xgYNKC0oumzgY2kXiogYQuwcWs71tatXKDBFue1HoT\ng1j8di67jTp7qDap8eXiKWFqoHx2e7vXMj4F/Gu8pYcOz4f4ls8/Z9VrI4bYDMgC\nMt+Rof1XljYMhsWFUY466LIT73lGe+4tlIFSRwIDAQABAoIBADq58JDfjwh/yeIW\nOpQUkDD0hKIiHmP8mNdePiPZEj8mXgtCQRtxu7Th8m9qaeEsiLoTDx51Lc4H3h2a\nPBMIHNt5730IT63dGSPoYrqE1hf3wMT1EyQJTtD3Qi4WNvNXQ0ZuFJ178YrUxl1s\n5EkBtOwkv6ZngxmzkjQM7YNuTtjkwrp1xxo/v8cwxhbuLNgzmz/cGJg4jxCBA7Hv\ne1bIDzBRAUZEy2TlVedvfDZJDJQUbTywdTxdeurggATfvLPjSjMhJXTmyu9myMr1\nY3UFnIQZMmtYJ+CWaPpvOI1mUrO4Py9yEA9VNrWzJIpGz3VcC5T0Bw1qTcp9lSjG\nAqWWuVECgYEA9EvEh07DwhH/i3O2R54lPQsQM0DROTD1wSgzvH3GH1h+oSeShv71\nUn3R07YfMhg6af2ZNDMfnuMNpQ57jQbdbz5OvhKIVGuuiaErZsoy/BGvMuSKGOkP\nZ1snVeSvDeWyacOtvqENUCL8cm31T8kDMhUeI7zw9uuB0GGRee/jXlkCgYEA4g9h\nKzFdu+lSV2DyMSaLyp6XydvwjsHGoKYt/30g0yGdH/+7IlHriHpxPVVB+FvScLr1\nre0/u396wY7kVOaYx5aLCVA52B2QJmzvew/THPKlmdwoJdRbwsSV1SgUJ2dQPC7w\n3CL1DS5V8CR9CRNJPCm30ikNN6LC5/T7CV6aYZ8CgYEAriwa6TFh5kq4vC76haMd\n/6CUo0YSJUlf3aARCtFNYOnSFonFMVQzieXEpMHTCf82Hn09LndIkxpkjwp9UfXU\nCE0PDPrfkfjYDq4G6Jk+snLVS16fitUXM2RM7jNGD411n2xwwlnGyRy4ickVvhWd\nnqZpv6ck0ZblDbGSa7J5k7kCgYEAkN2mOVXDab5VxCUeT50SDGChiPxnJjTLovub\nkpSPSn3KAU2SkKXKuIUuuE1An3XIX/GPq0vUgcVp10xIypeT5KN2qhs9Vl9rlxRM\nS6KSeYSN1xGcsNFrlF8CXbz3XWD5q/ew5oGIZFADRoc7kWtIjUN2xzkDfVnSaW82\nyIRVjqUCgYA0CYfZcg9r5QsY7IAqMnjaxB6WYvvRveDE8ynBmRuM63t6p3080uNe\nEjtGPdK2maK43FZX1MlWIKXKxycI0ws8DUBT84gOje/7vAjVrnItgDpgJMMGjL8q\npYTVs/BzAaFx4Flx8IftzsWHx8bQeNxIyGRs3RcYTmziFdnBDqnoAQ==\n-----END
+        RSA PRIVATE KEY-----"}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 16:24:29 GMT
+recorded_with: VCR 2.9.3

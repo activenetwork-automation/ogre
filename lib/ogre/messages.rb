@@ -14,6 +14,7 @@ module Ogre
   DESC_ASSOCIATE_ADMIN      = 'Add user to admin group within organization'
   DESC_REPO_LICENSE         = 'Chef policy repository license'
   DESC_REPO_AUTHORS         = 'Chef policy repository authors'
+  DESC_REPO_PATH            = 'Chef policy repository path'
   DESC_REPO_EMAIL           = 'Chef policy repository e-mail'
   DESC_CREATE_REPO          = 'Create Chef policy repository'
   DESC_FORCE                = 'Delete without confirmation'

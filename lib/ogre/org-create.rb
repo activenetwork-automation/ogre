@@ -1,5 +1,6 @@
 require 'chef-dk/command/generator_commands/repo'
 
+# rubocop:disable CyclomaticComplexity, PerceivedComplexity
 module Ogre
   # organization create
   class OrgCreate < Ogre::Base
@@ -9,6 +10,7 @@ module Ogre
 
     # optional chef policy repo parameters
     class_option :create_repo, aliases: '-p', type: :boolean, default: false, desc: DESC_CREATE_REPO
+    class_option :repo_path, aliases: '-P', type: :string, desc: DESC_REPO_PATH
     class_option :license, aliases: '-I', default: 'apache2', type: :string, desc: DESC_REPO_LICENSE
     class_option :email, aliases: '-m', type: :string, desc: DESC_REPO_EMAIL
     class_option :authors, aliases: '-C', type: :string, desc: DESC_REPO_AUTHORS
@@ -21,16 +23,25 @@ module Ogre
 
       # use chef repo generate to create a chef policy repo
       if options[:create_repo]
-        Dir.mkdir OGRE_HOME unless File.exist?(OGRE_HOME)
-        generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params)
+
+        # create parent dir for chef policy repo
+        repo_path = options[:repo_path] ? options[:repo_path] : OGRE_HOME
+        Dir.mkdir repo_path unless File.exist?(repo_path)
+
+        # run cookbook generate
+        generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params(repo_path))
         generate_cmd.run
+
         File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", 'w') do |f|
           f.print(response['private_key'])
         end
+
       else
         puts response['private_key']
       end
+
     rescue Net::HTTPServerException => e
+
       # already exists -- i will allow it
       if e.response.code == '409'
         puts "#{org} org already exists"
@@ -39,9 +50,11 @@ module Ogre
       end
     end
 
-    def generate_params
+    private
+
+    def generate_params(repo_path)
       # chef policy repository parameters
-      generate_str = ["#{OGRE_HOME}/#{org}-chef"]
+      generate_str = ["#{repo_path}/#{org}-chef"]
 
       # org name
       generate_str << '-a'
@@ -77,3 +90,5 @@ module Ogre
     end
   end
 end
+
+# rubocop:enable CyclomaticComplexity, PerceivedComplexity

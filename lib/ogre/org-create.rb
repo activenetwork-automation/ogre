@@ -52,9 +52,9 @@ module Ogre
 
     private
 
-    def generate_params(repo_path)
+    def generate_params(parent_path)
       # chef policy repository parameters
-      generate_str = ["#{repo_path}/#{org}-chef"]
+      generate_str = ["#{parent_path}/#{org}-chef"]
 
       # org name
       generate_str << '-a'

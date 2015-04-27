@@ -33,6 +33,12 @@ describe Ogre::OrgCreate do
     end
   end
 
+  it 'create new org and save chef policy repository with parameters' do
+    args = %w(my-org-name my-org-desc -p -P tmp -I mit -m email@exmaple.com -C Top-Chefs --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
+    VCR.use_cassette("org-create") do
+      options = Ogre::OrgCreate.start(args)
+    end
+  end
 end
 
 #rubocop:enable LineLength

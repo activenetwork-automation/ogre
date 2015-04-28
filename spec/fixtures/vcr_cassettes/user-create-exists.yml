@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://chef.server/users
+    body:
+      encoding: ASCII-8BIT
+      string: '{"username":"user","first_name":"firstname","last_name":"lastname","display_name":"firstname
+        lastname","email":"user@exmaple.com","password":"password123"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-27T22:18:45Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - 68285a19-c397-4f8f-86df-640a7754c69b
+      Content-Length:
+      - '155'
+      X-Chef-Version:
+      - 12.2.1
+      User-Agent:
+      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Mon, 27 Apr 2015 22:18:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '40'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Location:
+      - http://chef.server/users/user
+    body:
+      encoding: UTF-8
+      string: '{"error":["User ''user'' already exists"]}'
+    http_version:
+  recorded_at: Mon, 27 Apr 2015 22:18:46 GMT
+recorded_with: VCR 2.9.3

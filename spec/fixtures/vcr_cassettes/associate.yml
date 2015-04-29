@@ -41,7 +41,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 201
@@ -107,7 +107,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 200
@@ -173,7 +173,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 200
@@ -242,7 +242,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 200
@@ -307,7 +307,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 200
@@ -376,7 +376,7 @@ http_interactions:
       X-Chef-Version:
       - 12.2.1
       User-Agent:
-      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+      - ruby
   response:
     status:
       code: 200

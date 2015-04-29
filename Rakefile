@@ -13,10 +13,9 @@ task :style do
   sh 'rubocop'
 end
 
-# task :doc do
-#  sh 'yard'
-# end
+task :doc do
+  sh 'yard'
+end
 
-#task default: [:spec, :features, :style, :doc, 'coveralls:push']
-task default: [:spec, :features, :style, 'coveralls:push']
+task default: [:spec, :features, :style, :doc, 'coveralls:push']
 

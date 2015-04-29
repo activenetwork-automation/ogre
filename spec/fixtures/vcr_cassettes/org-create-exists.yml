@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://chef.server/organizations
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"my-org-name","full_name":"my-org-desc"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-29T14:33:48Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - 6ab3f08e-f6e1-43e9-b11c-64dac81fc54f
+      Content-Length:
+      - '48'
+      X-Chef-Version:
+      - 12.2.1
+      User-Agent:
+      - Chef Client/12.2.1 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Wed, 29 Apr 2015 14:33:48 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '39'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Location:
+      - http://chef.server/organizations/my-org-name
+    body:
+      encoding: UTF-8
+      string: '{"error":"Organization already exists"}'
+    http_version: 
+  recorded_at: Wed, 29 Apr 2015 14:33:49 GMT
+recorded_with: VCR 2.9.3

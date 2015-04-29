@@ -37,13 +37,24 @@ describe Ogre::Associate do
   end
 
   it 'should fail user already exists' do
-    args = %w(my-org-name test)
+    args = %w(my-org-name test) + DEFAULTS
     VCR.use_cassette('associate-user-exists', match_requests_on: [:uri]) do
       response = "User 'test' already associated with organization 'my-org-name'\n"
       expect { Ogre::Associate.start(args) }.to output(response).to_stdout
     end
   end
 
+  it 'should fail org does not exist' do
+    args = %w(non-existent-org test)
+    VCR.use_cassette('associate-no-org', match_requests_on: [:uri]) do
+      begin
+        Ogre::UserCreate.start(args)
+      rescue Net::HTTPServerException => e
+        response = JSON.parse(e.response.body)
+        expect(response['error']).to eq(["organization ''non-existent-org'' does not exist."])
+      end
+    end
+  end
 end
 
 #rubocop:enable LineLength

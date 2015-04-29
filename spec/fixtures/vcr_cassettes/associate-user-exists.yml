@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests
+    uri: https://chef.server/organizations/my-org-name/association_requests
     body:
       encoding: ASCII-8BIT
       string: '{"user":"test"}'
@@ -33,7 +33,7 @@ http_interactions:
       X-Ops-Authorization-6:
       - "{{X-Ops-Authorization-6}}"
       Host:
-      - chef-test.dev.activenetwork.com:443
+      - chef.server:443
       X-Remote-Request-Id:
       - d32e6397-0c4a-4649-813d-25efddacc6ce
       Content-Length:
@@ -60,7 +60,7 @@ http_interactions:
       X-Ops-Api-Info:
       - flavor=cs;version=12.0.0;oc_erchef=1.5.0
       Location:
-      - http://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests/invalid_path
+      - http://chef.server/organizations/my-org-name/association_requests/invalid_path
     body:
       encoding: UTF-8
       string: '{"error":"The association already exists."}'
@@ -68,7 +68,7 @@ http_interactions:
   recorded_at: Wed, 29 Apr 2015 17:19:58 GMT
 - request:
     method: get
-    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/groups/users
+    uri: https://chef.server/organizations/my-org-name/groups/users
     body:
       encoding: US-ASCII
       string: ''
@@ -97,7 +97,7 @@ http_interactions:
       X-Ops-Authorization-6:
       - "{{X-Ops-Authorization-6}}"
       Host:
-      - chef-test.dev.activenetwork.com:443
+      - chef.server:443
       X-Remote-Request-Id:
       - d32e6397-0c4a-4649-813d-25efddacc6ce
       X-Chef-Version:

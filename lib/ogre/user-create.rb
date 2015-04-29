@@ -1,5 +1,5 @@
 module Ogre
-  # UserCreate
+  # This is used to create a user in enterprise chef
   class UserCreate < Ogre::Base
     include Thor::Actions
 
@@ -9,7 +9,8 @@ module Ogre
     argument :last_name, type: :string
     argument :email, type: :string
     argument :password, type: :string
-    # user create
+
+    # Create chef user
     def user_create
       # create user
       user_json = {

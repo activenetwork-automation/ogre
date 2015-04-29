@@ -1,13 +1,16 @@
 require 'fileutils'
 
-# Ogre
+# This is a simple class that puts options from a config file
+# into an accessible object
 module Ogre
-  # environment
+  # ogre home
   OGRE_HOME = "#{ENV['HOME']}/.ogre"
+  # config path
   CONFIG_PATH = "#{OGRE_HOME}/config.json"
 
-  # read defaults from config file
+  # Static method to make config parameters available
   class Config
+    # Read in defaults from config file
     def self.options
       (JSON.parse(File.read(CONFIG_PATH), symbolize_names: true) if File.exist?(CONFIG_PATH)) || {}
     end

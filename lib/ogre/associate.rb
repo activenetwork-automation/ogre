@@ -1,5 +1,5 @@
 module Ogre
-  # associate user to org bypassing the association request
+  # Associate user to org while bypassing the association request
   class Associate < Ogre::Base
     include Thor::Actions
 
@@ -10,6 +10,7 @@ module Ogre
     # optional
     class_option :admin, aliases: '-a', type: :boolean, desc: DESC_ASSOCIATE_ADMIN
 
+    # Associate user to org while bypassing the association request
     def associate
       begin
         # associate (invite) user

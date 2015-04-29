@@ -37,7 +37,7 @@ ogre org-create ORG DESCRIPTION (options)
 - `-m`, `--email=EMAIL` Chef policy repository e-mail
 - `-C`, `--authors=AUTHORS` Chef policy repository authors
 
-When using `-p`, Ogre will save the Chef policy repository as ~/.ogre/[organization-name]-chef, otherwise it will output the validator key for the new organization.
+When using `-p`, Ogre will save the Chef policy repository as ~/.ogre/ORG-chef, otherwise it will output the validator key for the new organization.
 
 ogre org-delete ORG (options)
 ---

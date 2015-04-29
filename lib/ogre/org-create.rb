@@ -1,10 +1,11 @@
 require 'chef-dk/command/generator_commands/repo'
 
-# rubocop:disable CyclomaticComplexity, PerceivedComplexity
 module Ogre
-  # organization create
+  # Create organization through Chef::REST with the option to create the
+  # Chef policy repository
   class OrgCreate < Ogre::Base
-    # required
+    # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+    # required parameters
     argument :org, type: :string, desc: DESC_ORG
     argument :org_desc, type: :string, desc: DESC_ORG_DESC
 
@@ -15,8 +16,8 @@ module Ogre
     class_option :email, aliases: '-m', type: :string, desc: DESC_REPO_EMAIL
     class_option :authors, aliases: '-C', type: :string, desc: DESC_REPO_AUTHORS
 
+    # organization create method
     def org_create
-      # create org
       org_json = { name: "#{org}", full_name: "#{org_desc}" }
       response = chef_rest.post_rest('/organizations', org_json)
       puts "'#{org}' org has been created."
@@ -52,6 +53,7 @@ module Ogre
 
     private
 
+    # concatenate parameters into a format ChefDK::Command::GeneratorCommands::Repo will accept
     def generate_params(parent_path)
       # chef policy repository parameters
       generate_str = ["#{parent_path}/#{org}-chef"]

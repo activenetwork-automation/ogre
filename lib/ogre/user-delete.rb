@@ -1,5 +1,5 @@
 module Ogre
-  # UserDelete
+  # This is used to delete a user from enterprise chef
   class UserDelete < Ogre::Base
     include Thor::Actions
 
@@ -9,7 +9,7 @@ module Ogre
     # optional
     class_option :force, aliases: '-f', default: false, type: :boolean, desc: DESC_FORCE
 
-    # user delete
+    # Delete user from enterprise chef
     def user_delete
       # prompt user
       # rubocop:disable LineLength

@@ -1,7 +1,7 @@
 require 'vcoworkflows'
 
 module Ogre
-  # SetPrivateKey
+  # Set Private Key is used to set a chef validation key via a vco workflow
   class SetPrivateKey < Thor::Group
     include Thor::Actions
     # required
@@ -16,7 +16,7 @@ module Ogre
     class_option :vco_verify_ssl, type: :boolean, desc: DESC_VCO_WF_NAME
 
     # rubocop:disable CyclomaticComplexity, PerceivedComplexity
-    # call vcoworkflows to call set private key
+    # Execute vcoworkflows gem to call set private key
     def set_private_key
       # get workflow
       # rubocop:disable AlignParameters

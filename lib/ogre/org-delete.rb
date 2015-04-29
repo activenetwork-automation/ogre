@@ -1,5 +1,5 @@
 module Ogre
-  # organization delete
+  # Delete organization through Chef::REST object
   class OrgDelete < Ogre::Base
     include Thor::Actions
 
@@ -8,6 +8,7 @@ module Ogre
 
     class_option :force, aliases: '-f', default: false, type: :boolean, desc: DESC_FORCE
 
+    # Organization delete
     def org_delete
       # prompt user
       exit unless options[:force] || HighLine.agree("Deleting '#{org}' is permanent. Do you want to proceed? (y/n)")

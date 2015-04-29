@@ -10,7 +10,6 @@ require 'ogre/set-private-key'
 require 'ogre/user-create'
 require 'ogre/user-delete'
 
-# Refer to README.md for use instructions
 module Ogre
   # Start of main CLI
   class CLI < Thor
@@ -19,12 +18,13 @@ module Ogre
     map '-v' => :version
 
     desc 'version, -v', DESC_VERSION
+    # Display the version of `ogre`
     def version
       puts VERSION
     end
 
-    # subcommand in Thor called as registered class
     # rubocop:disable LineLength
+    # subcommand in Thor called as registered class
     register(OrgCreate, 'org_create', 'org-create ' << OrgCreate.arguments.map(&:name).join(' ').upcase, DESC_CREATE)
     register(OrgDelete, 'org_delete', 'org-delete ' << OrgDelete.arguments.map(&:name).join(' ').upcase, DESC_DELETE)
     register(UserCreate, 'user_create', 'user-create ' << UserCreate.arguments.map(&:name).join(' ').upcase, DESC_CREATE_USER)
@@ -33,7 +33,7 @@ module Ogre
     register(SetPrivateKey, 'set_private_key', 'set-private-key ' << SetPrivateKey.arguments.map(&:name).join(' ').upcase, DESC_SET_PRIVATE_KEY)
     # rubocop:enable LineLength
 
-    # workaround to include options in 'ogre help command'
+    # Workarounds to include options in 'ogre help command'
     tasks['user_create'].options = UserCreate.class_options
     tasks['user_delete'].options = UserDelete.class_options
     tasks['org_create'].options = OrgCreate.class_options

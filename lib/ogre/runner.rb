@@ -3,11 +3,9 @@ require 'ogre'
 module Ogre
   # wrapper to assist aruba in single process execution
   class Runner
-    # rubocop:disable LineLength
     def initialize(argv, stdin = STDIN, stdout = STDOUT, stderr = STDERR, kernel = Kernel)
       @argv, @stdin, @stdout, @stderr, @kernel = argv, stdin, stdout, stderr, kernel
     end
-    # rubocop:enable LineLength
 
     # rubocop:disable MethodLength
     def execute!

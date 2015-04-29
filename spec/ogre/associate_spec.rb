@@ -22,14 +22,25 @@ describe Ogre::Associate do
   it 'should associate user to org' do
     args = %w(my-org-name test) + DEFAULTS
     VCR.use_cassette('associate', match_requests_on: [:uri]) do
-      Ogre::Associate.start(args)
+      response = "Successfully added 'test' to 'users' in the my-org-name org\n"
+      expect { Ogre::Associate.start(args) }.to output(response).to_stdout
     end
   end
 
   it 'should associate user to users and admin group' do
     args = %w(my-org-name test -a) + DEFAULTS
     VCR.use_cassette('associate', match_requests_on: [:uri]) do
-      Ogre::Associate.start(args)
+      response = "Successfully added 'test' to 'users' in the my-org-name org\n" \
+                 "Successfully added 'test' to 'admins' in the my-org-name org\n"
+      expect { Ogre::Associate.start(args) }.to output(response).to_stdout
+    end
+  end
+
+  it 'should fail user already exists' do
+    args = %w(my-org-name test)
+    VCR.use_cassette('associate-user-exists', match_requests_on: [:uri]) do
+      response = "User 'test' already associated with organization 'my-org-name'\n"
+      expect { Ogre::Associate.start(args) }.to output(response).to_stdout
     end
   end
 

@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests
+    body:
+      encoding: ASCII-8BIT
+      string: '{"user":"test"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-29T17:19:58Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef-test.dev.activenetwork.com:443
+      X-Remote-Request-Id:
+      - d32e6397-0c4a-4649-813d-25efddacc6ce
+      Content-Length:
+      - '15'
+      X-Chef-Version:
+      - 12.3.0
+      User-Agent:
+      - Chef Client/12.3.0 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Wed, 29 Apr 2015 17:19:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Location:
+      - http://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests/invalid_path
+    body:
+      encoding: UTF-8
+      string: '{"error":"The association already exists."}'
+    http_version: 
+  recorded_at: Wed, 29 Apr 2015 17:19:58 GMT
+- request:
+    method: get
+    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/groups/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-29T17:19:58Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef-test.dev.activenetwork.com:443
+      X-Remote-Request-Id:
+      - d32e6397-0c4a-4649-813d-25efddacc6ce
+      X-Chef-Version:
+      - 12.3.0
+      User-Agent:
+      - Chef Client/12.3.0 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Wed, 29 Apr 2015 17:19:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA32OQQrCMBBF7zLrFpwGovYq4iKTzJRC25QkLYh4d5Poom6c
+        zed/Hrx5grHJhwj9DdZx98lM0EDimHJskQPcP/mfsNPISypMxofgt7Xyp8Oh
+        c/asiNAZTfoqyFZnxxHpBBU7QUISEtGduuji92FYzMzQw/xoc2lra+A7ljdj
+        rtX7s73e4g3mO98AAAA=
+    http_version: 
+  recorded_at: Wed, 29 Apr 2015 17:19:58 GMT
+recorded_with: VCR 2.9.3

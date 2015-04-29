@@ -13,7 +13,7 @@ VCR.configure do |config|
     headers.keys.
       select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }.
       each { |header| headers[header] = Array("{{#{header}}}") }
-    headers["X-Ops-Userid"] = 'pivotal'
+    headers['X-Ops-Userid'] = 'pivotal'
   end
 
 end
@@ -21,9 +21,9 @@ end
 describe Ogre::OrgDelete do
 
   it 'should delete org' do
-    args = %w(my-org-name -f --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
+    args = %w(my-org-name -f) + DEFAULTS
     VCR.use_cassette('org-delete') do
-      options = Ogre::OrgDelete.start(args)
+      Ogre::OrgDelete.start(args)
     end
   end
 

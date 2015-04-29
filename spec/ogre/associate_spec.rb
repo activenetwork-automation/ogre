@@ -13,23 +13,23 @@ VCR.configure do |config|
     headers.keys.
       select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }.
       each { |header| headers[header] = Array("{{#{header}}}") }
-    headers["X-Ops-Userid"] = 'pivotal'
+    headers['X-Ops-Userid'] = 'pivotal'
   end
 end
 
 describe Ogre::Associate do
 
   it 'should associate user to org' do
-    args = %w(my-org-name test --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
-    VCR.use_cassette('associate', :match_requests_on => [:uri]) do
-      options = Ogre::Associate.start(args)
+    args = %w(my-org-name test) + DEFAULTS
+    VCR.use_cassette('associate', match_requests_on: [:uri]) do
+      Ogre::Associate.start(args)
     end
   end
 
   it 'should associate user to users and admin group' do
-    args = %w(my-org-name test -a --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
-    VCR.use_cassette('associate', :match_requests_on => [:uri]) do
-      options = Ogre::Associate.start(args)
+    args = %w(my-org-name test -a) + DEFAULTS
+    VCR.use_cassette('associate', match_requests_on: [:uri]) do
+      Ogre::Associate.start(args)
     end
   end
 

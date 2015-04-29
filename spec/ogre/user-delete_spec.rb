@@ -13,16 +13,16 @@ VCR.configure do |config|
     headers.keys.
       select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }.
       each { |header| headers[header] = Array("{{#{header}}}") }
-    headers["X-Ops-Userid"] = 'pivotal'
+    headers['X-Ops-Userid'] = 'pivotal'
   end
 end
 
 describe Ogre::UserDelete do
 
   it 'should delete user' do
-    args = %w(user -f --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
+    args = %w(user -f) + DEFAULTS
     VCR.use_cassette('user-delete') do
-      options = Ogre::UserDelete.start(args)
+      Ogre::UserDelete.start(args)
     end
   end
 

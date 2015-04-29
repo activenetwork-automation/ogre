@@ -11,9 +11,9 @@ end
 describe Ogre::SetPrivateKey do
 
   it 'should set private key via vco workflow' do
-    args = %w(chef.server org-validator spec/fixtures/client_key/dummy.pem --vco-url https://vco.server:8281/ --vco-user user --vco-password password  --vco-wf-name Set-Private-Key)
-    VCR.use_cassette('set-private-key', :match_requests_on => [:uri]) do
-      options = Ogre::SetPrivateKey.start(args)
+    args = %w(chef.server org-validator spec/fixtures/client_key/dummy.pem) + VCO_DEFAULTS
+    VCR.use_cassette('set-private-key', match_requests_on: [:uri]) do
+      Ogre::SetPrivateKey.start(args)
     end
   end
 

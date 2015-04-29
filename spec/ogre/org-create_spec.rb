@@ -21,22 +21,28 @@ describe Ogre::OrgCreate do
 
   it 'should create new org' do
     args = %w(my-org-name my-org-desc --run_as pivotal) + DEFAULTS
+    response = "'my-org-name' org has been created."
     VCR.use_cassette('org-create') do
-      Ogre::OrgCreate.start(args)
+      expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
     end
   end
 
   it 'should create new org and save chef policy repository' do
-    args = %w(my-org-name my-org-desc -p -P tmp) + DEFAULTS
+    args = %w(my-org-name my-org-desc -p -P) + DEFAULTS
+    response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
     VCR.use_cassette('org-create') do
-      Ogre::OrgCreate.start(args)
+      expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
     end
   end
 
   it 'should create new org and save chef policy repository with parameters' do
-    args = %w(my-org-name my-org-desc -p -P tmp -I mit -m email@exmaple.com -C Top-Chefs) + DEFAULTS
+    args = %w(my-org-name my-org-desc -p -P tmp -I mit -m youremail@example.com -C Top-Chefs) + DEFAULTS
+    response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
     VCR.use_cassette('org-create') do
-      Ogre::OrgCreate.start(args)
+      expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
+      expect(File.read(KNIFE_PATH)).to match(/cookbook_email           "youremail@example.com"/)
+      expect(File.read(KNIFE_PATH)).to match(/cookbook_copyright       "Top-Chefs"/)
+      expect(File.read(KNIFE_PATH)).to match(/cookbook_license         "mit"/)
     end
   end
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests
+    uri: https://chef.server/organizations/my-org-name/association_requests
     body:
       encoding: ASCII-8BIT
       string: '{"user":"non-existent-user"}'
@@ -33,7 +33,7 @@ http_interactions:
       X-Ops-Authorization-6:
       - "{{X-Ops-Authorization-6}}"
       Host:
-      - chef-test.dev.activenetwork.com:443
+      - chef.server:443
       X-Remote-Request-Id:
       - c2f3113f-655f-4ecb-baa5-e572f0d1aa9e
       Content-Length:

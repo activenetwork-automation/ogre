@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://chef.server/users
+    body:
+      encoding: ASCII-8BIT
+      string: '{"username":"user","first_name":"first-name","last_name":"last-name","display_name":"first-name
+        last-name","email":"userexmaple.com","password":"password123"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-29T19:44:34Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - dcace02e-2507-4e47-b63b-4fcfe54aa244
+      Content-Length:
+      - '158'
+      X-Chef-Version:
+      - 12.3.0
+      User-Agent:
+      - Chef Client/12.3.0 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Wed, 29 Apr 2015 19:44:33 GMT
+      Content-Length:
+      - '33'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+    body:
+      encoding: UTF-8
+      string: '{"error":["email must be valid"]}'
+    http_version: 
+  recorded_at: Wed, 29 Apr 2015 19:44:34 GMT
+recorded_with: VCR 2.9.3

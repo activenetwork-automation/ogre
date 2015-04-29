@@ -1,8 +1,6 @@
 require_relative '../spec_helper.rb'
 require 'ogre'
 
-# rubocop:disable LineLength
-
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
@@ -18,23 +16,24 @@ VCR.configure do |config|
 end
 
 describe Ogre::UserCreate do
-
   it 'should create new user' do
-    args = %w(user firstname lastname user@exmaple.com password123) + DEFAULTS
+    args = %w(user first-name last-name user@exmaple.com password123) + DEFAULTS
+    response = "'user' has been created.\n"
     VCR.use_cassette('user-create') do
-      Ogre::UserCreate.start(args)
+      expect { Ogre::UserCreate.start(args) }.to output(response).to_stdout
     end
   end
 
   it 'should fail user exists' do
-    args = %w(user firstname lastname user@exmaple.com password123) + DEFAULTS
+    args = %w(user first-name last-name user@exmaple.com password123) + DEFAULTS
+    response = "'user' already exists.\n"
     VCR.use_cassette('user-create-exists') do
-      Ogre::UserCreate.start(args)
+      expect { Ogre::UserCreate.start(args) }.to output(response).to_stdout
     end
   end
 
   it 'should fail password too short' do
-    args = %w(user firstname lastname user@exmaple.com a) + DEFAULTS
+    args = %w(user first-name last-name user@exmaple.com a) + DEFAULTS
     VCR.use_cassette('user-create-short-password') do
       begin
         Ogre::UserCreate.start(args)
@@ -45,6 +44,18 @@ describe Ogre::UserCreate do
     end
   end
 
+  it 'should fail bad email' do
+    args = %w(user first-name last-name userexmaple.com password123) + DEFAULTS
+    VCR.use_cassette('user-create-bad-email') do
+      begin
+        Ogre::UserCreate.start(args)
+      rescue Net::HTTPServerException => e
+        response = JSON.parse(e.response.body)
+        expect(response['error']).to eq(['email must be valid'])
+      end
+    end
+  end
+
 end
 
-#rubocop:enable LineLength
+

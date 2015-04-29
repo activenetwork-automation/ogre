@@ -18,9 +18,9 @@ VCR.configure do |config|
 end
 
 describe Ogre::UserCreate do
-
+  DEFAULTS = %w{ password123 --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server }
   it 'should create new user' do
-    args = %w(user firstname lastname user@exmaple.com password123 --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
+    args = %w(user firstname lastname user@exmaple.com #{DEFAULTS})
     VCR.use_cassette('user-create') do
       options = Ogre::UserCreate.start(args)
     end
@@ -34,7 +34,7 @@ describe Ogre::UserCreate do
   end
 
   it 'should fail password too short' do
-    args = %w(user firstname lastname user@exmaple.com a)
+    args = %w(user firstname lastname user@exmaple.com a --run_as pivotal --key_path spec/fixtures/client_key/dummy.pem --server_url https://chef.server)
     VCR.use_cassette('user-create-short-password') do
       begin
         options = Ogre::UserCreate.start(args)

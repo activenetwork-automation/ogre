@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://chef.server/organizations/non-existent-org/association_requests
+    uri: https://chef-test.dev.activenetwork.com/organizations/my-org-name/association_requests
     body:
       encoding: ASCII-8BIT
-      string: '{"user":"test"}'
+      string: '{"user":"non-existent-user"}'
     headers:
       Content-Type:
       - application/json
@@ -17,7 +17,7 @@ http_interactions:
       - algorithm=sha1;version=1.0;
       X-Ops-Userid: pivotal
       X-Ops-Timestamp:
-      - '2015-04-29T17:35:33Z'
+      - '2015-04-29T17:41:28Z'
       X-Ops-Content-Hash:
       - "{{X-Ops-Content-Hash}}"
       X-Ops-Authorization-1:
@@ -33,11 +33,11 @@ http_interactions:
       X-Ops-Authorization-6:
       - "{{X-Ops-Authorization-6}}"
       Host:
-      - chef.server:443
+      - chef-test.dev.activenetwork.com:443
       X-Remote-Request-Id:
-      - 6c5bd7e8-44f4-4aab-aaa3-c05d6376bb3f
+      - c2f3113f-655f-4ecb-baa5-e572f0d1aa9e
       Content-Length:
-      - '15'
+      - '28'
       X-Chef-Version:
       - 12.3.0
       User-Agent:
@@ -50,16 +50,16 @@ http_interactions:
       Server:
       - ngx_openresty/1.4.3.6
       Date:
-      - Wed, 29 Apr 2015 17:35:32 GMT
+      - Wed, 29 Apr 2015 17:41:27 GMT
       Content-Length:
-      - '61'
+      - '49'
       Connection:
       - keep-alive
       X-Ops-Api-Info:
       - flavor=cs;version=12.0.0;oc_erchef=1.5.0
     body:
       encoding: UTF-8
-      string: '{"error":["organization ''non-existent-org'' does not exist."]}'
+      string: '{"error":"Could not find user non-existent-user"}'
     http_version: 
-  recorded_at: Wed, 29 Apr 2015 17:35:33 GMT
+  recorded_at: Wed, 29 Apr 2015 17:41:28 GMT
 recorded_with: VCR 2.9.3

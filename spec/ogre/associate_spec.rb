@@ -45,16 +45,29 @@ describe Ogre::Associate do
   end
 
   it 'should fail org does not exist' do
-    args = %w(non-existent-org test)
+    args = %w(non-existent-org test) + DEFAULTS
     VCR.use_cassette('associate-no-org', match_requests_on: [:uri]) do
       begin
-        Ogre::UserCreate.start(args)
+        Ogre::Associate.start(args)
       rescue Net::HTTPServerException => e
         response = JSON.parse(e.response.body)
-        expect(response['error']).to eq(["organization ''non-existent-org'' does not exist."])
+        expect(response['error']).to eq(["organization 'non-existent-org' does not exist."])
       end
     end
   end
+
+  it 'should fail user does not exist' do
+    args = %w(my-org-name non-existent-user)
+    VCR.use_cassette('associate-no-user', match_requests_on: [:uri]) do
+      begin
+        Ogre::Associate.start(args)
+      rescue Net::HTTPServerException => e
+        response = JSON.parse(e.response.body)
+        expect(response['error']).to eq('Could not find user non-existent-user')
+      end
+    end
+  end
+
 end
 
 #rubocop:enable LineLength

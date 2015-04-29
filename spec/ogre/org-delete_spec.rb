@@ -19,11 +19,19 @@ VCR.configure do |config|
 end
 
 describe Ogre::OrgDelete do
-
   it 'should delete org' do
     args = %w(my-org-name -f) + DEFAULTS
+    response = "'my-org-name' org has been deleted.\n"
     VCR.use_cassette('org-delete') do
-      Ogre::OrgDelete.start(args)
+      expect { Ogre::OrgDelete.start(args) }.to output(response).to_stdout
+    end
+  end
+
+  it 'should fail org doesnt exist' do
+    args = %w(my-nonexistent-org -f) + DEFAULTS
+    response = "my-nonexistent-org org does not exist\n"
+    VCR.use_cassette('org-delete-no-org') do
+      expect { Ogre::OrgDelete.start(args) }.to output(response).to_stdout
     end
   end
 

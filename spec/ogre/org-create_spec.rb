@@ -11,8 +11,8 @@ VCR.configure do |config|
   config.before_record do |interaction|
     headers = interaction.request.headers
     headers.keys.
-      select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }.
-      each { |header| headers[header] = Array("{{#{header}}}") }
+      select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }
+      .each { |header| headers[header] = Array("{{#{header}}}") }
     headers['X-Ops-Userid'] = 'pivotal'
   end
 end

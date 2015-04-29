@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chef.server/users/unknown/organizations
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-04-29T19:51:29Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Remote-Request-Id:
+      - 0ed7d600-dc63-43f3-a5aa-e2c03c0d376a
+      X-Chef-Version:
+      - 12.3.0
+      User-Agent:
+      - Chef Client/12.3.0 (ruby-2.1.4-p265; ohai-8.2.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 404
+      message: Object Not Found
+    headers:
+      Server:
+      - ngx_openresty/1.4.3.6
+      Date:
+      - Wed, 29 Apr 2015 19:51:29 GMT
+      Content-Length:
+      - '39'
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.5.0
+    body:
+      encoding: UTF-8
+      string: '{"error":"Could not find user unknown"}'
+    http_version: 
+  recorded_at: Wed, 29 Apr 2015 19:51:29 GMT
+recorded_with: VCR 2.9.3

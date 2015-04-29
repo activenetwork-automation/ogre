@@ -17,5 +17,6 @@ end
 #  sh 'yard'
 # end
 
-# task default: [:spec, :features, :style, :doc, 'coveralls:push']
-task default: [:style]
+#task default: [:spec, :features, :style, :doc, 'coveralls:push']
+task default: [:spec, :features, :style, 'coveralls:push']
+

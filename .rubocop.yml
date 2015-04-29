@@ -3,6 +3,7 @@ AllCops:
     - Guardfile
     - vendor/**/*
     - lib/ogre/skeletons/**/*
+    - tmp/**/*
 Metrics/AbcSize:
   Enabled: false
 Metrics/LineLength:

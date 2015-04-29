@@ -1,8 +1,6 @@
 require_relative '../spec_helper.rb'
 require 'ogre'
 
-# rubocop:disable LineLength
-
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
@@ -22,7 +20,4 @@ describe Ogre::SetPrivateKey do
       expect { Ogre::SetPrivateKey.start(args) }.to output(response).to_stdout
     end
   end
-
 end
-
-#rubocop:enable LineLength

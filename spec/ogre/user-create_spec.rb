@@ -8,8 +8,8 @@ VCR.configure do |config|
   # remove sensitive authentication information from the recording
   config.before_record do |interaction|
     headers = interaction.request.headers
-    headers.keys.
-      select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }
+    headers.keys
+      .select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }
       .each { |header| headers[header] = Array("{{#{header}}}") }
     headers['X-Ops-Userid'] = 'pivotal'
   end
@@ -55,7 +55,4 @@ describe Ogre::UserCreate do
       end
     end
   end
-
 end
-
-

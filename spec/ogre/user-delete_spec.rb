@@ -8,15 +8,14 @@ VCR.configure do |config|
   # remove sensitive authentication information from the recording
   config.before_record do |interaction|
     headers = interaction.request.headers
-    headers.keys.
-      select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }
+    headers.keys
+      .select { |k| k =~ /^X-Ops-(Authorization-|Content-Hash)/ }
       .each { |header| headers[header] = Array("{{#{header}}}") }
     headers['X-Ops-Userid'] = 'pivotal'
   end
 end
 
 describe Ogre::UserDelete do
-
   it 'should delete user' do
     args = %w(user -f) + DEFAULTS
     response = "'user' has been deleted.\n"
@@ -32,7 +31,4 @@ describe Ogre::UserDelete do
       expect { Ogre::UserDelete.start(args) }.to output(response).to_stdout
     end
   end
-
 end
-
-

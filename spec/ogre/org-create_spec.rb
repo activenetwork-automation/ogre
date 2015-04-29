@@ -28,7 +28,7 @@ describe Ogre::OrgCreate do
   end
 
   it 'should create new org and save chef policy repository' do
-    args = %w(my-org-name my-org-desc -p -P) + DEFAULTS
+    args = %w(my-org-name my-org-desc -p -P tmp) + DEFAULTS
     response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
     VCR.use_cassette('org-create') do
       expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout

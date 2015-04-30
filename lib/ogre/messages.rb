@@ -1,3 +1,4 @@
+
 # string constants for interactive messages
 module Ogre
   # version
@@ -78,4 +79,3 @@ module Ogre
   # Chef validator username
   DESC_CHEF_VALIDATOR       = 'Chef validator user name'
 end
-

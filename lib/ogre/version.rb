@@ -1,4 +1,5 @@
+# simple gem version number tracking
 module Ogre
-  # simple gem version number tracking
+  # version
   VERSION = '0.1.0'
 end

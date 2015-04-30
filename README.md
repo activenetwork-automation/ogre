@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/activenetwork-automation/ogre.svg)](https://travis-ci.org/activenetwork-automation/ogre)
+
 # Ogre
 
 This gem supports organization and user management for Enterprise Chef.

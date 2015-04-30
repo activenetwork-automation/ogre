@@ -33,7 +33,7 @@ module Ogre
         generate_cmd = ChefDK::Command::GeneratorCommands::Repo.new(generate_params(repo_path))
         generate_cmd.run
 
-        File.open("#{OGRE_HOME}/#{org}-chef/.chef/#{response['clientname']}.pem", 'w') do |f|
+        File.open("#{repo_path}/#{org}-chef/.chef/#{response['clientname']}.pem", 'w') do |f|
           f.print(response['private_key'])
         end
 

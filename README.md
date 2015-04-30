@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/activenetwork-automation/ogre.svg)](https://travis-ci.org/activenetwork-automation/ogre)
+[![Coverage Status](https://coveralls.io/repos/activenetwork-automation/ogre/badge.svg)](https://coveralls.io/r/activenetwork-automation/ogre)
 
 # Ogre
 

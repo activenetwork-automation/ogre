@@ -38,7 +38,6 @@ module Ogre
       # check status
       finished = false
       until finished
-        sleep 5
         # Fetch a new workflow token to check the status of the workflow execution
         wf_token = workflow.token
         # If the execution is no longer alive, exit the loop
@@ -46,6 +45,7 @@ module Ogre
           finished = true
           execution_id
         end
+        sleep 5
       end
 
       # output result

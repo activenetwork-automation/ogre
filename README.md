@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.org/activenetwork-automation/ogre.svg)](https://travis-ci.org/activenetwork-automation/ogre)
 [![Coverage Status](https://coveralls.io/repos/activenetwork-automation/ogre/badge.svg)](https://coveralls.io/r/activenetwork-automation/ogre)
 [![Dependency Status](https://gemnasium.com/activenetwork-automation/ogre.svg)](https://gemnasium.com/activenetwork-automation/ogre)
-[![Inline docs](http://inch-ci.org/github/activenetwork-automation/ogre.png?branch=master)][inch]
-
+[![Inline docs](http://inch-ci.org/github/activenetwork-automation/ogre.png?branch=master)](http://inch-ci.org/github/activenetwork-automation/ogre)
 
 # Ogre
 

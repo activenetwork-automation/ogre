@@ -18,9 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'bundler', '~> 1.9.6'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rubocop', '~> 0.27.0'
+  spec.add_development_dependency 'rubocop', '~> 0.30.1'
   # spec.add_development_dependency 'aruba', '>= 0.6'
   spec.add_development_dependency 'rspec', '>= 3.0'
   spec.add_development_dependency 'coveralls', '>= 0.7.9'
@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr', '>= 2.9.3'
 
   spec.add_dependency 'thor', '~> 0.19.1'
-  spec.add_dependency 'chef-dk', '~> 0.4.0'
+  spec.add_dependency 'chef-dk', '~> 0.5.1'
   spec.add_dependency 'vcoworkflows', '~> 0.1.2'
 end
 # rubocop:enable all

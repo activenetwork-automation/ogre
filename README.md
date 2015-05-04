@@ -68,7 +68,7 @@ ogre set-private-key CHEF_HOSTNAME CHEF_VALIDATOR_NAME KEY_PATH (options)
 - `--vco-user` vCenter Orchestrator user
 - `--vco-password` vCenter Orchestrator password
 - `--vco-wf-name` vCenter Orchestrator workflow name
-- `--vco-verify-ssl` vCenter Orchestrator workflow name
+- `--vco-verify-ssl` vCenter Orchestrator verify ssl
 
 ## Contributing
 

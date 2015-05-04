@@ -78,4 +78,7 @@ module Ogre
 
   # Chef validator username
   DESC_CHEF_VALIDATOR       = 'Chef validator user name'
+
+  # vCenter verify ssl param
+  DESC_VCO_VERIFY_SSL       = 'vCenter Orchestrator verify ssl'
 end

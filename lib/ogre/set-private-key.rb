@@ -13,7 +13,7 @@ module Ogre
     class_option :vco_user, tydpe: :string, desc: DESC_VCO_USER
     class_option :vco_password, type: :string, desc: DESC_VCO_PASSWORD
     class_option :vco_wf_name, type: :string, desc: DESC_VCO_WF_NAME
-    class_option :vco_verify_ssl, type: :boolean, desc: DESC_VCO_WF_NAME
+    class_option :vco_verify_ssl, type: :boolean, desc: DESC_VCO_VERIFY_SSL
 
     # rubocop:disable CyclomaticComplexity, PerceivedComplexity
     # Execute vcoworkflows gem to call set private key

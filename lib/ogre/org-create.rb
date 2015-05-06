@@ -68,7 +68,7 @@ module Ogre
 
       # generator skeleton
       generate_str << '-g'
-      generate_str << 'lib/ogre/skeletons/code_generator'
+      generate_str << File.expand_path('../skeletons/code_generator', __FILE__)
 
       # optional license
       if options[:license]
@@ -85,7 +85,7 @@ module Ogre
       # optional authors
       if options[:authors]
         generate_str << '-C'
-        generate_str << "\"#{options[:authors]}\""
+        generate_str << "#{options[:authors]}"
       end
 
       generate_str

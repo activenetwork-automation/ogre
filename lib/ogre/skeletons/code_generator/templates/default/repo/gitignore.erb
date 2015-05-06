@@ -4,6 +4,7 @@
 # Ignore Chef key files and secrets
 ###
 .chef/*.pem
+!<%=org%>-validator.pem
 .chef/encrypted_data_bag_secret
 <%- if policy_only -%>
 cookbooks/**

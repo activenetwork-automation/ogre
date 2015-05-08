@@ -16,6 +16,6 @@
   "chef_type": "environment",
   "json_class": "Chef::Environment",
   "cookbook_versions": {},
-  "description": "Chef-Zero Development Environment",
+  "description": "Chef Development Environment",
   "name": "dev"
 }

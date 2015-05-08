@@ -16,6 +16,6 @@
   "chef_type": "environment",
   "json_class": "Chef::Environment",
   "cookbook_versions": {},
-  "description": "Chef-Zero QA Environment",
+  "description": "Chef QA Environment",
   "name": "qa"
 }

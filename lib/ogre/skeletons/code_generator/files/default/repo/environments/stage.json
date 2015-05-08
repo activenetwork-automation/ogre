@@ -16,6 +16,6 @@
   "chef_type": "environment",
   "json_class": "Chef::Environment",
   "cookbook_versions": {},
-  "description": "Chef-Zero Staging Environment",
+  "description": "Chef Staging Environment",
   "name": "stage"
 }

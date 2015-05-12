@@ -2,6 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/activenetwork-automation/ogre/badge.svg)](https://coveralls.io/r/activenetwork-automation/ogre)
 [![Dependency Status](https://gemnasium.com/activenetwork-automation/ogre.svg)](https://gemnasium.com/activenetwork-automation/ogre)
 [![Inline docs](http://inch-ci.org/github/activenetwork-automation/ogre.png?branch=master)](http://inch-ci.org/github/activenetwork-automation/ogre)
+[![Gem Version](https://badge.fury.io/rb/ogre.svg)](http://badge.fury.io/rb/ogre)
 
 # Ogre
 

@@ -15,4 +15,4 @@ task :doc do
   sh 'yard'
 end
 
-task default: [:spec, :style, :doc, 'coveralls:push']
+task default: [:style, :spec, :doc, 'coveralls:push']

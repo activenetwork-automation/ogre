@@ -28,7 +28,7 @@ log_location             STDOUT
 # USERNAME is UPPERCASE in Windows, but lowercase in the Chef server,
 # so `downcase` it.
 node_name                ( ENV['USER'] || ENV['USERNAME'] ).downcase
-client_key               "#{home_dir}/.chef/#{node_name}_#{org}.pem"
+client_key               "#{home_dir}/.chef/#{node_name}.pem"
 cache_type               'BasicFile'
 cache_options( :path => "#{home_dir}/.chef/checksums" )
 

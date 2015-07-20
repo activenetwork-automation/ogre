@@ -14,7 +14,9 @@ While this functionality already exists in [knife-opc](https://github.com/chef/k
 
 ## Installation
 
-`gem install ogre`
+Having ChefDK as a hard dependency causes conflicts.  So prior to using `ogre`, you'll need to have the ChefDK already installed.
+
+`chef gem install ogre`
 
 ## Configuration
 

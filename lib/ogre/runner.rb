@@ -11,7 +11,6 @@ module Ogre
       @kernel = kernel
     end
 
-    # rubocop:disable MethodLength
     def execute!
       exit_code = begin
         $stderr = @stderr
@@ -39,6 +38,5 @@ module Ogre
       # Proxy exit code back to the injected kernel.
       @kernel.exit(exit_code)
     end
-    # rubocop:enable MethodLength
   end
 end

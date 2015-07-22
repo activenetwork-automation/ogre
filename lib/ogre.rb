@@ -9,6 +9,7 @@ require 'ogre/org-delete'
 require 'ogre/set-private-key'
 require 'ogre/user-create'
 require 'ogre/user-delete'
+require 'ogre/version'
 
 module Ogre
   # Start of main CLI

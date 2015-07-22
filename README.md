@@ -14,7 +14,9 @@ While this functionality already exists in [knife-opc](https://github.com/chef/k
 
 ## Installation
 
-`gem install ogre`
+There's an open ended dependency on the ChefDK and is expected you have it already installed.  The best way to install ogre the least amount of dependencies is to:
+
+`chef gem install ogre`
 
 ## Configuration
 

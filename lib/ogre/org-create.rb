@@ -4,7 +4,7 @@ module Ogre
   # Create organization through Chef::REST with the option to create the
   # Chef policy repository
   class OrgCreate < Ogre::Base
-    # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+    # rubocop:disable PerceivedComplexity
     # required parameters
     argument :org, type: :string, desc: DESC_ORG
     argument :org_desc, type: :string, desc: DESC_ORG_DESC
@@ -93,4 +93,4 @@ module Ogre
   end
 end
 
-# rubocop:enable CyclomaticComplexity, PerceivedComplexity
+# rubocop:enable PerceivedComplexity

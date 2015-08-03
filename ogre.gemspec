@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '>= 1.7'
   spec.add_development_dependency 'rake', '>= 10.0'
-  spec.add_development_dependency 'rubocop', '>= 0.27.0'
+  spec.add_development_dependency 'rubocop', '>= 0.32.1'
   # spec.add_development_dependency 'aruba', '>= 0.6'
   spec.add_development_dependency 'rspec', '>= 3.0'
   spec.add_development_dependency 'coveralls', '>= 0.7.9'
@@ -33,8 +33,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr', '>= 2.9.3'
 
   spec.add_dependency 'chef-dk'
-  spec.add_dependency 'vcoworkflows', '~> 0.2.1'
-  spec.add_dependency 'thor', '~> 0.19.1'
+  spec.add_dependency 'vcoworkflows', '>= 0.2.1'
+  spec.add_dependency 'thor', '>= 0.19.1'
+  spec.add_dependency 'git', '>= 1.2.0'
 end
 # rubocop:enable all
 

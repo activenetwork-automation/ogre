@@ -17,4 +17,6 @@ mkmf.log
 
 *.sw?
 
+*.gem
+
 .ruby-version

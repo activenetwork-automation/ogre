@@ -14,7 +14,9 @@ While this functionality already exists in [knife-opc](https://github.com/chef/k
 
 ## Installation
 
-`gem install ogre`
+There's an open ended dependency on the ChefDK and is expected you have it already installed.  The best way to install ogre the least amount of dependencies is to:
+
+`chef gem install ogre`
 
 ## Configuration
 
@@ -31,7 +33,8 @@ All of the parameters here are optional and can be passed in and/or overriden at
    "vco_user": "domain\\user",
    "vco_password":"password",
    "vco_wf_name":"vco_workflow_name",
-   "vco_verify_ssl":"false"
+   "vco_verify_ssl":"false",
+   "repo_url":"https://path.to/skeleton_repo"
 }
 
 ```
@@ -44,6 +47,7 @@ ogre org-create ORG DESCRIPTION (options)
 - `-I`, `--license=LICENSE` Chef policy repository license
 - `-m`, `--email=EMAIL` Chef policy repository e-mail
 - `-C`, `--authors=AUTHORS` Chef policy repository authors
+- `-r`, `--repo-url=REPO_URL` Chef Policy Repository skeleton url
 
 When using `-p`, Ogre will save the Chef policy repository as ~/.ogre/ORG-chef, otherwise it will output the validator key for the new organization.
 

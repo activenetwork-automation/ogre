@@ -81,4 +81,7 @@ module Ogre
 
   # vCenter verify ssl param
   DESC_VCO_VERIFY_SSL       = 'vCenter Orchestrator verify ssl'
+
+  # Chef Policy Repository skeleton url
+  DESC_REPO_URL             = 'Chef Policy Repository skeleton url'
 end

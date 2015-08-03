@@ -7,6 +7,8 @@ module Ogre
   OGRE_HOME = "#{ENV['HOME']}/.ogre"
   # config path
   CONFIG_PATH = "#{OGRE_HOME}/config.json"
+  # default chef policy repo
+  REPO_URL = 'https://github.com/activenetwork-automation/code_generator'
 
   # Static method to make config parameters available
   class Config

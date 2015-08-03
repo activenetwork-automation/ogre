@@ -31,9 +31,9 @@ describe Ogre::OrgCreate do
       expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
     end
   end
-
+  # rubocop:disable LineLength
   it 'should create new org and save chef policy repository with parameters' do
-    args = %w(my-org-name my-org-desc -p --repo-path tmp -I mit -m youremail@example.com -C Top-Chefs) + DEFAULTS
+    args = %w(my-org-name my-org-desc -p --repo-path tmp -I mit -m youremail@example.com -C Top-Chefs -r https://github.com/activenetwork-automation/code_generator) + DEFAULTS
     response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
     VCR.use_cassette('org-create') do
       expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
@@ -42,6 +42,7 @@ describe Ogre::OrgCreate do
       expect(File.read(KNIFE_PATH)).to match(/cookbook_license         "mit"/)
     end
   end
+  # rubocop:enable LineLength
 
   it 'should fail org exists' do
     args = %w(my-org-name my-org-desc) + DEFAULTS

@@ -5,6 +5,7 @@ module Ogre
 
     # Users list
     def org_list
+      # pull down all users
       results = chef_rest.get_rest('/users')
       puts results.keys.sort { |a, b| a <=> b }
     end

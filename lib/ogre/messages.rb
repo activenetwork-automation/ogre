@@ -16,6 +16,15 @@ module Ogre
   # org description
   DESC_ORG_DESC             = 'Organization long name'
 
+  # org list
+  DESC_ORG_LIST             = 'List organiations'
+
+  # org Show
+  DESC_ORG_SHOW             = 'Show organization details'
+
+  # user list
+  DESC_USER_LIST            = 'List users'
+
   # private key path
   DESC_PRIVATE_KEY          = 'Path to private key file'
 

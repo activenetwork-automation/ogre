@@ -5,10 +5,8 @@ module Ogre
 
     # Organizations list
     def org_list
-      begin
-        results = chef_rest.get_rest("/organizations")
-        puts results.keys.sort { |a,b| a <=> b }
-      end
+      results = chef_rest.get_rest('/organizations')
+      puts results.keys.sort { |a, b| a <=> b }
     end
   end
 end

@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chef.server/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      X-Ops-Sign:
+      - algorithm=sha1;version=1.0;
+      X-Ops-Userid: pivotal
+      X-Ops-Timestamp:
+      - '2015-08-05T14:18:08Z'
+      X-Ops-Content-Hash:
+      - "{{X-Ops-Content-Hash}}"
+      X-Ops-Authorization-1:
+      - "{{X-Ops-Authorization-1}}"
+      X-Ops-Authorization-2:
+      - "{{X-Ops-Authorization-2}}"
+      X-Ops-Authorization-3:
+      - "{{X-Ops-Authorization-3}}"
+      X-Ops-Authorization-4:
+      - "{{X-Ops-Authorization-4}}"
+      X-Ops-Authorization-5:
+      - "{{X-Ops-Authorization-5}}"
+      X-Ops-Authorization-6:
+      - "{{X-Ops-Authorization-6}}"
+      Host:
+      - chef.server:443
+      X-Ops-Server-Api-Version:
+      - '1'
+      X-Remote-Request-Id:
+      - 4446b332-5316-484f-9dcd-98cdc39eea65
+      X-Chef-Version:
+      - 12.4.1
+      User-Agent:
+      - Chef Knife/12.4.1 (ruby-2.1.5-p273; ohai-8.5.0; x86_64-darwin12.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.7.10.1
+      Date:
+      - Wed, 05 Aug 2015 14:18:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ops-Api-Info:
+      - flavor=cs;version=12.0.0;oc_erchef=1.6.4
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5XUS3LDIAwG4LuwJvF028t0MFYNNQaPAKdOp3ev6me2/54P
+        hF4/avJzKiaod+VKmfJ701hHn/eO5ruxxc8UqTwSD3ebxqZm4twcRKscfH1D
+        6Aa0+horT25B6EG06nIxHDOCDyIvTxT9N2J3Ie8yPaO3NCD6QlqxTRx97BF/
+        Gq3o6QyGdyG/blPhBKXsIP/FsoFMRKI+iFamrTxQKYg+jaRMGsWHkBB+Ggl9
+        8AyVawMSdkwEDcUGtIpjKgskdyHTFH1F/rmelz/Gvi6ElWcn0tPBxxwImsTT
+        yNsLQfO/npckyY6J9KDikP++KK1a4iHfzOSRGy4kFS751lYfOuSCC2lVRivb
+        wKVgoLl6ZVLz2X5kOyIxHGTdJ20gxO5C6u4MlLn1vLCHYShhG9Cq5+qfN9NB
+        0V5Iq8kZnrE+PYi0qQkt+95BW+hCv387D1hIJwcAAA==
+    http_version:
+  recorded_at: Wed, 05 Aug 2015 14:18:08 GMT
+recorded_with: VCR 2.9.3

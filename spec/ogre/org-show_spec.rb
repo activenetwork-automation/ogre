@@ -20,7 +20,7 @@ describe Ogre::OrgShow do
     args = %w(my-test-org) + DEFAULTS
     VCR.use_cassette('org-show') do
       # rubocop:disable LineLength
-      expect { Ogre::OrgShow.start(args) }.to output(/(06ea2683f8cd6e177771f32482b72ea3)|(my-test-org)|(test org)|(@pivotal)|(@ats-build)|(@ats-build)/).to_stdout
+      expect { Ogre::OrgShow.start(args) }.to output(/(06ea2683f8cd6e177771f32482b72ea3)|(my-test-org)|(test org)|(@pivotal)|(@ats-build)|(berks-api)/).to_stdout
       # rubocop:enable LineLength
     end
   end

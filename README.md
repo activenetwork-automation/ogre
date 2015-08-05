@@ -55,12 +55,22 @@ ogre org-delete ORG (options)
 ---
 - `-f`, `--force` Delete without confirmation
 
+ogre org-list ORG (options)
+---
+
+ogre org-show ORG (options)
+---
+Users in the admin group are prefixed with `@`
+
 ogre user-create USERNAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
 ---
 
 ogre user-delete USERNAME (options)
 ---
 - `-f`, `--force` Delete without confirmation
+
+ogre user-list (options)
+---
 
 ogre associate ORG USER (options)
 ---

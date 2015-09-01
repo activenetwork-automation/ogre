@@ -38,4 +38,3 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'git', '>= 1.2.0'
 end
 # rubocop:enable all
-

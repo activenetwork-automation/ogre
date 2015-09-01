@@ -20,8 +20,9 @@ module Ogre
     def set_private_key
       # get workflow
       # rubocop:disable AlignParameters, SpaceAroundOperators
+
       workflow = VcoWorkflows::Workflow.new(options[:vco_wf_name]    || Config.options[:vco_wf_name],
-                                url:        options[:vco_url]        || Config.options[:vco_url],
+                                server:     options[:vco_url]        || Config.options[:vco_url],
                                 verify_ssl: options[:vco_verify_ssl] || Config.options[:vco_verify_ssl],
                                 username:   options[:vco_user]       || Config.options[:vco_user],
                                 password:   options[:vco_password]   || Config.options[:vco_password])

@@ -1,10 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/activenetwork-automation/ogre.svg?label=ready&title=Ready)](http://waffle.io/activenetwork-automation/ogre)
-
-[![Build Status](https://travis-ci.org/activenetwork-automation/ogre.svg)](https://travis-ci.org/activenetwork-automation/ogre)
+[![Stories in Ready](https://badge.waffle.io/activenetwork-automation/ogre.svg?label=ready&title=Ready)](http://waffle.io/activenetwork-automation/ogre) [![Build Status](https://travis-ci.org/activenetwork-automation/ogre.svg)](https://travis-ci.org/activenetwork-automation/ogre)
 [![Coverage Status](https://coveralls.io/repos/activenetwork-automation/ogre/badge.svg)](https://coveralls.io/r/activenetwork-automation/ogre)
 [![Dependency Status](https://gemnasium.com/activenetwork-automation/ogre.svg)](https://gemnasium.com/activenetwork-automation/ogre)
 [![Inline docs](http://inch-ci.org/github/activenetwork-automation/ogre.png?branch=master)](http://inch-ci.org/github/activenetwork-automation/ogre)
-[![Gem Version](https://badge.fury.io/rb/ogre.svg)](http://badge.fury.io/rb/ogre)
+[![Gem Version](https://badge.fury.io/rb/ogre.svg)](http://badge.fury.io/rb/ogre) [![Code Climate](https://codeclimate.com/github/activenetwork-automation/ogre/badges/gpa.svg)](https://codeclimate.com/github/activenetwork-automation/ogre)
 
 # Ogre
 

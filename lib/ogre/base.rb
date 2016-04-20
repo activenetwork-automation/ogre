@@ -13,9 +13,9 @@ module Ogre
 
     # Parameters passed in from cli will take precedence
     def chef_rest
-      Chef::REST.new(options[:server_url] || Config.options[:server_url],
-                     options[:run_as] || Config.options[:run_as],
-                     options[:key_path] || Config.options[:key_path])
+      Chef::Config.node_name = options[:run_as] || Config.options[:run_as]
+      Chef::Config.client_key = options[:key_path] || Config.options[:key_path]
+      Chef::ServerAPI.new(options[:server_url] || Config.options[:server_url])
     end
   end
 end

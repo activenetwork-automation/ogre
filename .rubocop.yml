@@ -14,3 +14,5 @@ Style/SpecialGlobalVars:
   Enabled: false
 Style/FileName:
   Enabled: false
+Style/GuardClause:
+  Enabled: false

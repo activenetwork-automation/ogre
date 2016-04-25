@@ -39,7 +39,7 @@ module Ogre
         # check if user is in group
         unless group['actors'].include?(user)
           body_hash = {
-            groupname: "#{groupname}",
+            groupname: groupname.to_s,
             actors: {
               users: group['actors'].concat([user]),
               groups: group['groups']

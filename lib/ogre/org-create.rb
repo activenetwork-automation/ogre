@@ -20,7 +20,7 @@ module Ogre
 
     # organization create method
     def org_create
-      org_json = { name: "#{org}", full_name: "#{org_desc}" }
+      org_json = { name: org.to_s, full_name: org_desc.to_s }
       response = chef_rest.post_rest('/organizations', org_json)
       puts "'#{org}' org has been created."
 
@@ -97,19 +97,19 @@ module Ogre
       # optional license
       if options[:license]
         generate_str << '-I'
-        generate_str << "#{options[:license]}"
+        generate_str << options[:license].to_s
       end
 
       # optional email
       if options[:email]
         generate_str << '-m'
-        generate_str << "#{options[:email]}"
+        generate_str << options[:email].to_s
       end
 
       # optional authors
       if options[:authors]
         generate_str << '-C'
-        generate_str << "#{options[:authors]}"
+        generate_str << options[:authors].to_s
       end
 
       generate_str

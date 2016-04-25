@@ -17,14 +17,14 @@ module Ogre
       # rubocop:enable LineLength
 
       # disassociate from all orgs
-      orgs = chef_rest.get_rest("users/#{username}/organizations")
+      orgs = chef_rest.get("users/#{username}/organizations")
       org_names = orgs.map { |o| o['organization']['name'] }
       org_names.each do |org|
-        puts chef_rest.delete_rest("organizations/#{org}/users/#{username}")
+        puts chef_rest.delete("organizations/#{org}/users/#{username}")
       end
 
       # delete user
-      chef_rest.delete_rest("users/#{username}")
+      chef_rest.delete("users/#{username}")
       puts "'#{username}' has been deleted."
 
     rescue Net::HTTPServerException => e

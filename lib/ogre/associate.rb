@@ -19,7 +19,7 @@ module Ogre
 
         # add (force) user to org
         association_id = response['uri'].split('/').last
-        chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", response: 'accept'
+        chef_rest.put "users/#{user}/association_requests/#{association_id}", response: 'accept'
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
         if e.response.code == '409'
@@ -35,7 +35,7 @@ module Ogre
 
       # add user to group(s)
       groups.each do |groupname|
-        group = chef_rest.get_rest "organizations/#{org}/groups/#{groupname}"
+        group = chef_rest.get "organizations/#{org}/groups/#{groupname}"
         # check if user is in group
         unless group['actors'].include?(user)
           body_hash = {

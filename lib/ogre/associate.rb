@@ -15,7 +15,7 @@ module Ogre
       begin
         # associate (invite) user
         request_body = { user: user }
-        response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
+        response = chef_rest.post "organizations/#{org}/association_requests", request_body
 
         # add (force) user to org
         association_id = response['uri'].split('/').last

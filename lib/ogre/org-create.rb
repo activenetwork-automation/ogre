@@ -21,7 +21,7 @@ module Ogre
     # organization create method
     def org_create
       org_json = { name: org.to_s, full_name: org_desc.to_s }
-      response = chef_rest.post_rest('/organizations', org_json)
+      response = chef_rest.post('/organizations', org_json)
       puts "'#{org}' org has been created."
 
       # use chef repo generate to create a chef policy repo

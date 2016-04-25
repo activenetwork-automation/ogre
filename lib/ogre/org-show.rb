@@ -9,16 +9,16 @@ module Ogre
     # Show org details
     def org_show
       # get org details
-      results = chef_rest.get_rest("/organizations/#{org}")
+      results = chef_rest.get("/organizations/#{org}")
       puts colorize('name:') + "         #{results['name']}"
       puts colorize('description:') + "  #{results['full_name']}"
       puts colorize('guid:') + "         #{results['guid']}"
 
       # get admins
-      admins = chef_rest.get_rest("/organizations/#{org}/groups/admins")
+      admins = chef_rest.get("/organizations/#{org}/groups/admins")
 
       # get normal users
-      users = chef_rest.get_rest("/organizations/#{org}/groups/users")
+      users = chef_rest.get("/organizations/#{org}/groups/users")
 
       # output admins with a '@' prefix
       admins['users'].each do |admin|

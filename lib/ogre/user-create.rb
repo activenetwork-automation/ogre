@@ -22,7 +22,7 @@ module Ogre
         password:     password
       }
 
-      chef_rest.post_rest('/users', user_json)
+      chef_rest.post('/users', user_json)
 
       puts "'#{username}' has been created."
 

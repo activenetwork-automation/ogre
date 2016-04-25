@@ -15,11 +15,11 @@ module Ogre
       begin
         # associate (invite) user
         request_body = { user: user }
-        response = chef_rest.post_rest "organizations/#{org}/association_requests", request_body
+        response = chef_rest.post "organizations/#{org}/association_requests", request_body
 
         # add (force) user to org
         association_id = response['uri'].split('/').last
-        chef_rest.put_rest "users/#{user}/association_requests/#{association_id}", response: 'accept'
+        chef_rest.put "users/#{user}/association_requests/#{association_id}", response: 'accept'
       rescue Net::HTTPServerException => e
         # already exists -- i will allow it
         if e.response.code == '409'
@@ -35,11 +35,11 @@ module Ogre
 
       # add user to group(s)
       groups.each do |groupname|
-        group = chef_rest.get_rest "organizations/#{org}/groups/#{groupname}"
+        group = chef_rest.get "organizations/#{org}/groups/#{groupname}"
         # check if user is in group
         unless group['actors'].include?(user)
           body_hash = {
-            groupname: "#{groupname}",
+            groupname: groupname.to_s,
             actors: {
               users: group['actors'].concat([user]),
               groups: group['groups']
@@ -47,7 +47,7 @@ module Ogre
           }
 
           # associate user
-          chef_rest.put_rest "organizations/#{org}/groups/#{groupname}", body_hash
+          chef_rest.put "organizations/#{org}/groups/#{groupname}", body_hash
           puts "Successfully added '#{user}' to '#{groupname}' in the #{org} org"
         end
         next

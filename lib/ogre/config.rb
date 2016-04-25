@@ -4,11 +4,11 @@ require 'fileutils'
 # into an accessible object
 module Ogre
   # ogre home
-  OGRE_HOME = "#{ENV['HOME']}/.ogre"
+  OGRE_HOME = "#{ENV['HOME']}/.ogre".freeze
   # config path
-  CONFIG_PATH = "#{OGRE_HOME}/config.json"
+  CONFIG_PATH = "#{OGRE_HOME}/config.json".freeze
   # default chef policy repo
-  REPO_URL = 'https://github.com/activenetwork-automation/code_generator'
+  REPO_URL = 'https://github.com/activenetwork-automation/code_generator'.freeze
 
   # Static method to make config parameters available
   class Config

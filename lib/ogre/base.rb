@@ -15,7 +15,8 @@ module Ogre
     def chef_rest
       Chef::Config.node_name = options[:run_as] || Config.options[:run_as]
       Chef::Config.client_key = options[:key_path] || Config.options[:key_path]
-      Chef::ServerAPI.new(options[:server_url] || Config.options[:server_url])
+      if Config.options[:ssl_verify_mode] == 'false' then Chef::Config.ssl_verify_mode = :verify_none end
+      Chef::ServerAPI.new(options[:server_url] || Config.options[:server_url], api_version: '0')
     end
   end
 end

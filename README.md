@@ -27,6 +27,7 @@ All of the parameters here are optional and can be passed in and/or overriden at
    "run_as":"chef_username",
    "key_path":"/path/to/key.pem",
    "server_url":"https://chef.url",
+   "ssl_verify_mode":"true (default) / false"
    "vco_url":"https://vco.url:8281/",
    "vco_user": "domain\\user",
    "vco_password":"password",

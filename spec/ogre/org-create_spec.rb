@@ -26,7 +26,7 @@ describe Ogre::OrgCreate do
 
   it 'should create new org and save chef policy repository' do
     args = %w(my-org-name my-org-desc -p --repo-path tmp) + DEFAULTS
-    response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
+    response = "'my-org-name' org has been created.\nInstalling Cookbook Gems:"
     VCR.use_cassette('org-create') do
       expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
     end
@@ -34,7 +34,7 @@ describe Ogre::OrgCreate do
   # rubocop:disable LineLength
   it 'should create new org and save chef policy repository with parameters' do
     args = %w(my-org-name my-org-desc -p --repo-path tmp -I mit -m youremail@example.com -C Top-Chefs -r https://github.com/activenetwork-automation/code_generator) + DEFAULTS
-    response = "'my-org-name' org has been created.\nCompiling Cookbooks..."
+    response = "'my-org-name' org has been created.\nInstalling Cookbook Gems:"
     VCR.use_cassette('org-create') do
       expect { Ogre::OrgCreate.start(args) }.to output(/#{response}/).to_stdout
       expect(File.read(KNIFE_PATH)).to match(/cookbook_email           "youremail@example.com"/)
